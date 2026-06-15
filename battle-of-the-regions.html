@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle of the Regions · The DMV Venture Championship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F0E6; --cream-2:#EFEADC; --paper:#FBF9F3;
+    --navy:#16273F; --navy-2:#1E3658;
+    --gold:#B68F47; --gold-2:#C8A765; --gold-line:#DCCDAC; --gold-soft:rgba(182,143,71,.5);
+    --dc:#2C5C8F; --md:#BB3B2E; --va:#3E6B49;
+    --mute:#5F6B7A; --ink:#16273F;
+    --line:#DAD0BB; --bline:#D9CDB4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Playfair Display',serif}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 28px}
+  .label{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
+  .gold-clr{color:var(--gold)}
+  .stars{color:var(--gold);letter-spacing:.45em}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter';font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;padding:14px 26px;cursor:pointer;transition:all .22s ease;border:1px solid transparent}
+  .btn-navy{background:var(--navy);color:var(--cream)}
+  .btn-navy:hover{background:var(--navy-2)}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:var(--gold-2)}
+  .btn-out{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn-out:hover{background:var(--navy);color:var(--cream)}
+
+  /* topo texture */
+  .topo-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;color:var(--navy)}
+  .topo-bg use{fill:none;stroke:currentColor;stroke-width:.5;stroke-opacity:.04}
+
+  .page{position:relative;z-index:1}
+
+  /* NAV */
+  nav{background:var(--cream);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px}
+  .logos{display:flex;align-items:center;gap:26px}
+  .logo{display:flex;align-items:center;gap:9px}
+  .logo .lt{font-family:'Inter';font-weight:800;font-size:11px;letter-spacing:.06em;line-height:1.05;text-transform:uppercase;color:var(--navy)}
+  .logo .lt span{display:block;font-weight:500;color:var(--gold);font-size:9.5px;letter-spacing:.14em}
+  .logo svg{width:30px;height:30px}
+  .logo.sep{padding-left:26px;border-left:1px solid var(--line)}
+  .nav-mid{display:flex;gap:28px;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--navy)}
+  .nav-mid a{color:var(--navy);opacity:.78;transition:opacity .2s}
+  .nav-mid a:hover{opacity:1;color:var(--gold)}
+  @media(max-width:1080px){.nav-mid{display:none}.logo.sep:nth-child(n+2){display:none}}
+
+  /* HERO */
+  .hero{border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;min-height:560px}
+  .hero-left{padding:64px 0 60px;display:flex;flex-direction:column;justify-content:center}
+  .hero-left .eyebrow{color:var(--gold);margin-bottom:22px}
+  .hero-word{font-family:'Playfair Display';color:var(--navy);font-weight:800}
+  .hero-word .l{display:block;font-size:clamp(58px,8.5vw,118px);line-height:.84;letter-spacing:1px}
+  .hero-word .mid{display:flex;align-items:center;gap:18px;margin:8px 0}
+  .hero-word .mid span{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:.18em;color:var(--gold)}
+  .hero-word .mid .r{height:1.5px;flex:0 0 60px;background:var(--gold-soft)}
+  .vsline{margin-top:26px;font-family:'Playfair Display';font-weight:700;font-size:clamp(20px,2.5vw,28px);letter-spacing:.04em}
+  .vsline .vs{font-style:italic;font-weight:500;color:var(--mute);margin:0 14px;font-size:.82em}
+  .vsline .dc{color:var(--dc)}.vsline .md{color:var(--md)}.vsline .va{color:var(--va)}
+  .hero-sub{margin-top:22px;font-size:17px;color:#3c4757;max-width:42ch}
+  .hero-sub em{font-family:'Playfair Display';font-style:italic;font-size:19px;color:var(--navy)}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+
+  /* hero panels */
+  .hero-right{position:relative;overflow:hidden}
+  .panels{position:absolute;inset:0;display:flex;transform:skewX(-9deg);left:-6%;width:118%}
+  .panel{flex:1;position:relative;overflow:hidden;border-left:2px solid var(--cream)}
+  .panel .img{position:absolute;inset:0;transform:skewX(9deg) scale(1.25);background-size:cover;background-position:center}
+  .panel.dc .img{background:linear-gradient(180deg,#1f3a5c 0%,#284e78 45%,#0f2740 100%)}
+  .panel.md .img{background:linear-gradient(180deg,#3a2230 0%,#7e3a2c 50%,#2a1418 100%)}
+  .panel.va .img{background:linear-gradient(180deg,#243a2b 0%,#3a5e42 50%,#15241a 100%)}
+  .panel .scrim{position:absolute;inset:0;transform:skewX(9deg) scale(1.25);background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45))}
+  .panel .content{position:absolute;inset:0;transform:skewX(9deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+  .panel .so{width:54%;max-width:140px}
+  .panel .so path{fill:rgba(255,255,255,.04);stroke:#fff;stroke-width:2.4;vector-effect:non-scaling-stroke}
+  .panel.dc .content{filter:drop-shadow(0 0 10px rgba(120,170,240,.5))}
+  .panel.md .content{filter:drop-shadow(0 0 10px rgba(240,140,120,.5))}
+  .panel.va .content{filter:drop-shadow(0 0 10px rgba(130,220,150,.5))}
+  .panel .plabel{font-family:'Playfair Display';font-weight:800;font-size:34px;color:#fff;letter-spacing:1px}
+  .glowpulse{animation:gp 4.5s ease-in-out infinite}
+  @keyframes gp{0%,100%{opacity:.85}50%{opacity:1}}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-right{min-height:340px}
+    .panels{position:relative;height:340px}
+  }
+
+  /* STATS */
+  .stats{border-bottom:1px solid var(--line);background:var(--cream)}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{display:flex;align-items:center;justify-content:center;gap:16px;padding:34px 18px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none}
+  .stat svg{width:38px;height:38px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .stat .n{font-family:'Playfair Display';font-weight:700;font-size:42px;line-height:1;color:var(--navy)}
+  .stat .t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:3px}
+  @media(max-width:760px){.stats-in{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:none}.stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--line)}}
+
+  /* QUADRANT GRID */
+  .quad{border-bottom:1px solid var(--line)}
+  .quad-grid{display:grid;grid-template-columns:1fr 1fr}
+  .cell{padding:54px 46px;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+  .cell:nth-child(1),.cell:nth-child(2){border-top:none}
+  .cell:nth-child(odd){border-left:none}
+  .cell h2{font-size:30px;font-weight:700;margin-bottom:30px;letter-spacing:.3px}
+  @media(max-width:920px){.quad-grid{grid-template-columns:1fr}.cell{border-left:none}.cell:nth-child(2){border-top:1px solid var(--line)}}
+
+  /* bracket */
+  .bracket-wrap{width:100%;overflow-x:auto}
+  .bracket-svg{width:100%;min-width:520px;height:auto;display:block}
+  .legend{display:flex;gap:26px;justify-content:center;margin-top:18px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+  .legend i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
+
+  /* leaderboard */
+  .lb{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 14px 34px rgba(22,39,63,.06)}
+  .lb table{width:100%;border-collapse:collapse}
+  .lb th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;text-align:left;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .lb th:nth-child(2),.lb th:nth-child(3){text-align:center}
+  .lb td{padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:middle}
+  .lb tr:last-child td{border-bottom:none}
+  .lb .reg{display:flex;align-items:center;gap:12px}
+  .lb .reg svg{width:26px;height:30px;fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
+  .lb .reg .rn{font-family:'Playfair Display';font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+  .lb td.num{text-align:center;font-family:'Playfair Display';font-weight:700;font-size:24px}
+  .lb .dc-c{color:var(--dc)}.lb .md-c{color:var(--md)}.lb .va-c{color:var(--va)}
+  .lb-foot{padding:18px 20px;text-align:center}
+
+  /* timeline */
+  .flow{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+  .step{flex:1;text-align:center;min-width:0}
+  .step .circle{width:74px;height:74px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .step .circle svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .step .dt{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+  .step .ds{font-size:11.5px;color:var(--mute);margin-top:4px;line-height:1.35}
+  .arrow{align-self:flex-start;margin-top:28px;color:var(--gold-soft);flex:0 0 auto;font-size:16px}
+  .tl-tag{text-align:center;margin-top:40px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .tl-tag .s{margin:0 10px}
+  @media(max-width:640px){.flow{flex-wrap:wrap;gap:22px;justify-content:center}.arrow{display:none}.step{flex:0 0 40%}}
+
+  /* get involved */
+  .gi{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .gi-card{background:var(--paper);padding:26px 24px}
+  .gi-card svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+  .gi-card h4{font-family:'Inter';font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+  .gi-card p{font-size:13.5px;color:var(--mute);line-height:1.5;margin-bottom:14px;min-height:40px}
+  .gi-card a{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px}
+  .gi-card a:hover{color:var(--navy)}
+  @media(max-width:480px){.gi{grid-template-columns:1fr}}
+
+  /* CTA banner */
+  .cta{position:relative;text-align:center;padding:96px 0 88px;background:var(--cream-2);border-bottom:1px solid var(--line);overflow:hidden}
+  .cta .art{position:absolute;bottom:0;width:300px;opacity:.12;color:var(--navy)}
+  .cta .art.l{left:0}.cta .art.r{right:0;transform:scaleX(-1)}
+  .cta .art svg{width:100%;height:auto;fill:none;stroke:currentColor;stroke-width:1.3}
+  .cta-in{position:relative;z-index:1}
+  .cta .stars{display:block;font-size:15px;margin-bottom:20px}
+  .cta h2{font-size:clamp(40px,6.5vw,78px);font-weight:700;letter-spacing:1px}
+  .cta .rep{font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:22px}
+  .cta .appl{font-family:'Playfair Display';font-style:italic;font-size:18px;color:var(--mute);margin-top:10px}
+  .cta-divider{width:64px;height:1px;background:var(--gold-soft);margin:18px auto 0}
+
+  /* footer */
+  footer{background:var(--navy);color:var(--cream);padding:40px 0}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .foot .logos .lt{color:#fff}
+  .foot .logos .lt span{color:var(--gold-2)}
+  .foot .logos .logo.sep{border-left-color:rgba(255,255,255,.18)}
+  .foot-right{display:flex;align-items:center;gap:16px}
+  .foot-right .fj{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#c7cfdb}
+  .soc{display:flex;gap:10px}
+  .soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .soc a:hover{background:var(--gold)}
+  .soc svg{width:16px;height:16px;fill:#fff}
+
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="p-dc" d="M54.095,101.258L123.543,30L245.905,150.086L126.851,270L126.851,175.505Z"/>
+  <path id="p-md" d="M30.583,87.424L89.806,87.303L135.631,87.484L164.951,87.484L187.864,87.424L230,87.363L230,92.557L234.854,171.053L235.243,175.328L249.612,175.862L270,175.921L269.806,178.472L268.058,184.696L267.087,185.585L263.204,198.066L259.709,205.151L238.932,207.392L237.767,210.635L236.602,210.399L234.078,208.631L230.388,208.866L226.117,212.638L224.369,212.697L224.175,208.749L225.534,204.62L228.835,202.968L225.534,202.85L225.922,200.193L228.058,197.83L223.981,197.298L221.65,199.248L220.874,197.594L221.845,194.165L226.893,192.569L225.728,190.262L223.981,191.031L223.204,188.9L226.117,182.267L223.204,183.689L221.845,186.473L221.845,190.025L220.291,190.084L218.155,185.525L220.291,184.992L220.097,181.852L218.544,181.259L217.767,184.163L216.019,186.118L217.184,187.716L215.437,191.386L214.66,189.67L211.359,191.031L209.612,190.321L206.505,185.407L204.757,184.637L205.146,182.089L200.485,173.131L204.369,172.3L205.34,169.983L203.786,170.399L202.039,167.368L203.592,164.99L205.922,163.681L207.087,165.168L209.417,163.622L209.612,165.763L213.883,166.298L216.408,168.617L217.184,168.022L214.078,163.919L210.777,163.086L209.223,160.587L207.864,160.766L204.757,156.18L203.786,157.848L201.456,156.657L201.262,160.17L199.903,159.694L200.485,153.677L203.981,148.19L206.699,150.875L208.252,150.278L207.67,142.876L206.117,141.86L202.816,144.668L200.485,144.429L200.68,147.295L198.35,148.309L199.126,142.099L202.233,136.061L203.592,139.111L207.67,139.769L209.806,137.915L208.641,134.685L210.777,131.393L207.67,131.931L207.087,135.044L207.864,136.898L205.534,135.881L206.117,132.111L204.951,128.577L203.592,127.739L206.699,119.582L209.029,117.061L208.641,115.619L211.359,114.117L212.718,111.893L218.544,112.254L216.408,110.811L219.903,106.6L217.961,106.239L220.291,98.89L213.495,100.337L212.33,103.228L214.66,104.674L215.437,106.6L213.107,107.442L206.505,113.276L205.146,111.412L206.505,108.164L204.951,106.479L204.951,109.127L203.204,112.194L204.757,114.237L203.398,117L202.233,111.232L199.32,110.39L200.485,116.58L198.932,116.1L197.767,118.622L200.097,119.942L196.019,122.582L194.66,124.262L192.136,123.782L191.748,122.222L187.476,119.462L188.058,122.222L189.806,123.002L190.194,125.461L195.437,128.697L195.825,132.71L194.854,134.206L197.379,137.078L192.913,139.769L194.272,141.98L193.689,144.369L191.942,144.13L190.583,147.414L191.748,150.576L188.447,154.035L190.194,157.014L189.806,160.23L190.971,164.574L190.583,169.864L191.942,173.725L196.214,178.472L197.767,182.148L196.019,184.815L193.301,184.4L195.049,186.888L196.796,185.585L198.35,186.414L196.99,189.196L197.767,192.036L201.262,197.475L200.291,198.775L201.262,204.502L199.515,203.381L197.379,199.956L195.825,199.72L194.854,195.939L193.301,196.471L192.913,199.838L191.553,197.594L190,197.771L189.029,194.934L186.699,192.273L182.233,190.912L175.437,190.735L173.883,183.096L172.33,182.326L171.553,184.163L173.495,188.19L173.107,189.492L168.835,186.947L168.447,184.933L165.922,183.096L163.592,176.336L159.709,178.947L153.301,182.267L150.971,180.666L149.612,173.844L151.748,168.973L154.66,165.585L158.544,163.8L157.573,163.205L157.379,160.527L158.738,158.92L162.233,157.431L162.427,152.366L169.417,145.325L162.233,138.274L158.155,142.458L156.408,140.247L152.524,139.888L150.971,138.872L151.165,136.001L146.117,133.488L139.515,132.59L138.35,130.255L136.408,129.476L136.602,126L138.35,124.921L139.709,121.983L135.243,119.402L134.078,116.7L131.165,116.76L128.058,115.259L125.534,115.439L123.592,114.598L124.757,110.811L123.786,108.224L122.039,107.502L122.427,105.516L118.738,103.048L116.408,98.89L119.515,97.986L119.515,95.755L116.796,95.996L113.495,94.609L110,95.815L108.447,93.402L105.146,90.444L100.485,89.236L95.049,94.488L91.359,93.1L89.612,95.333L86.893,94.669L89.029,96.599L86.505,96.539L87.864,99.493L85.146,101.783L79.709,101.542L78.35,100.457L75.049,100.518L71.165,98.468L70.777,96.901L68.252,95.815L70.777,94.971L68.252,94.367L60.874,103.891L58.738,107.141L53.301,104.975L51.165,104.854L48.641,109.367L42.621,112.975L40.68,117L38.35,116.94L31.942,123.122L30,123.542Z"/>
+  <path id="p-va" d="M257.847,152.434L258.46,152.558L259.072,150.853L270,149.674L268.366,152.124L266.834,155.16L266.017,155.996L265.506,155.346L263.974,155.563L262.034,157.977L260.809,160.141L259.685,164.033L259.787,166.007L257.438,169.952L258.153,170.383L256.315,173.184L255.089,175.612L254.17,175.95L254.272,177.701L253.149,180.341L251.311,182.303L249.677,182.242L250.085,183.315L249.166,183.468L249.064,180.893L248.043,179.205L247.634,177.333L247.838,175.182L248.757,173.368L249.064,170.629L250.085,167.395L250.494,165.051L252.128,162.613L253.966,159.214L253.557,158.162L255.702,157.637L257.234,155.625L257.336,154.758L255.294,154.107ZM78.613,167.302L79.736,168.196L77.898,169.244L78,170.26L79.532,170.937L79.736,173.706L81.166,174.66L81.881,176.258L83.719,176.35L84.945,177.118L84.945,177.855L86.885,179.328L90.357,179.113L91.685,178.223L91.889,177.302L94.238,176.78L95.055,175.09L95.872,174.444L96.996,175.827L99.753,178.131L102.919,176.565L106.698,175.735L108.434,175.582L110.374,174.137L109.455,172.814L110.17,171.245L112.315,172.415L112.723,173.214L116.911,171.03L118.851,169.582L120.077,169.305L121.098,171.399L126.102,168.35L126.511,167.456L125.183,167.333L125.285,166.347L127.123,165.298L128.349,164.064L126.613,163.014L126.204,161.748L127.43,160.543L127.226,159.43L129.37,155.965L132.434,152.744L134.272,151.163L135.294,149.581L135.906,147.718L136.723,146.786L136.111,145.885L136.826,144.145L139.379,141.625L140.604,140.971L139.991,139.601L142.238,136.889L143.464,135.018L143.157,132.989L144.587,129.208L147.753,130.677L149.489,134.082L154.187,135.735L157.047,132.801L158.579,128.488L159.6,126.705L160.417,126.736L160.519,124.512L162.255,121.942L163.174,119.777L166.749,122.946L168.791,118.867L171.14,116.637L171.14,117.768L172.162,117.014L173.694,114.94L174.409,115.6L175.838,113.618L175.226,113.115L177.677,110.345L178.391,110.124L180.026,108.17L179.004,107.035L180.128,105.331L179.515,104.858L181.864,101.509L181.149,101.162L181.762,100.023L181.251,99.138L181.66,97.175L188.4,102.836L196.366,109.431L198.511,103.91L199.43,102.489L200.757,102.394L202.391,103.184L203.923,103.152L204.536,104.573L206.885,105.931L206.17,107.476L205.251,108.044L205.149,109.872L206.17,110.282L206.783,111.51L210.255,111.982L212.911,113.304L212.809,114.814L213.626,115.348L215.668,115.537L216.587,116.7L218.834,118.993L218.834,121.911L218.732,124.575L216.894,125.358L216.179,126.204L216.281,127.612L214.238,128.269L212.911,127.612L212.911,129.239L211.072,132.77L210.664,134.394L210.868,136.765L212.4,138.604L215.362,138.136L215.974,137.326L217.506,137.326L218.732,136.141L219.651,137.076L219.038,139.383L220.979,141.376L220.979,142.9L224.553,144.735L227.106,144.797L227.821,145.668L228.434,145.015L230.885,145.295L231.294,146.662L232.928,147.873L233.745,149.705L235.072,150.17L236.604,151.845L238.647,152.558L241.711,154.665L241.2,156.677L239.668,157.42L239.464,160.728L239.872,161.624L238.749,163.045L240.077,163.755L238.136,164.681L234.97,162.705L233.847,163.539L233.132,162.767L233.132,161.501L231.804,158.997L229.864,158.008L229.047,156.925L227.821,156.554L225.677,153.364L224.553,153.023L224.145,151.628L222.817,150.698L222.613,151.628L225.472,154.386L227.515,157.915L229.047,158.657L229.149,159.43L230.783,159.863L231.804,162.829L232.928,164.465L235.991,164.588L236.706,165.699L239.872,166.439L238.443,167.333L238.34,168.473L239.668,168.72L240.077,168.042L240.894,169.305L241.404,172.691L240.587,175.459L238.749,173.522L236.604,172.138L235.685,173.43L236.809,174.629L237.523,176.319L238.443,176.749L236.196,177.486L234.357,177.609L234.97,178.806L237.217,178.469L237.013,180.801L238.443,180.433L238.851,181.383L240.077,181.997L240.689,183.498L239.77,186.469L239.362,186.01L237.728,186.561L236.196,187.601L235.174,185.52L232.213,183.652L230.783,182.273L231.191,180.801L229.864,178.622L227.617,178.898L226.8,179.666L225.779,178.254L223.94,177.916L223.532,177.21L221.387,178.285L222.511,179.297L223.736,179.052L225.574,179.451L227.106,181.138L228.026,181.199L228.843,179.42L229.66,183.069L229.762,185.122L232.009,185.704L234.562,188.213L234.664,190.2L237.421,190.078L238.34,189.253L238.443,190.261L239.362,190.598L239.055,187.968L240.791,187.785L242.119,188.672L245.694,189.772L247.43,188.947L248.553,189.283L249.37,193.194L250.596,197.465L251.515,199.628L252.23,202.49L237.728,202.49L225.472,202.49L222.306,202.429L222.306,202.734L211.481,202.703L184.519,202.703L176.962,202.825L148.468,202.825L131.106,202.764L126.204,202.703L114.562,202.064L110.783,202.186L101.081,201.729L95.464,201.638L86.885,201.151L87.702,200.298L79.838,200.146L79.532,200.938L64.111,200.877L57.881,200.968L41.847,200.938L41.336,200.786L33.37,200.816L30,200.694L30.817,199.872L34.187,198.379L36.332,198.44L40.315,196.855L43.685,195.788L45.319,195.666L45.523,194.14L47.157,191.698L50.119,191.575L52.672,190.475L53.285,189.1L52.979,187.295L54.204,186.285L55.43,186.224L57.064,185.03L57.064,182.395L59.617,181.015L61.557,179.512L63.804,178.254L67.583,177.056Z"/>
+  <path id="contour" d="M0,0C70,-44 150,-46 196,-12 250,28 214,92 250,128 300,176 250,232 168,224 92,217 36,250 -44,214 -120,180 -150,120 -120,64 -92,12 -60,30 0,0Z"/>
+  <symbol id="ic-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.6a3.2 3.2 0 0 1 0 6.4M21 20a5.6 5.6 0 0 0-3.6-5.2"/></symbol>
+  <symbol id="ic-pins" viewBox="0 0 24 24"><path d="M8 10c0 3-3 5-3 5s-3-2-3-5a3 3 0 0 1 6 0Z"/><path d="M15 7c0 3-3 5-3 5s-3-2-3-5a3 3 0 0 1 6 0Z"/><path d="M22 10c0 3-3 5-3 5s-3-2-3-5a3 3 0 0 1 6 0Z"/></symbol>
+  <symbol id="ic-trophy" viewBox="0 0 24 24"><path d="M7 4h10v3.5a5 5 0 0 1-10 0Z"/><path d="M7 5H4v1.5A3 3 0 0 0 7 9.5M17 5h3v1.5a3 3 0 0 1-3 3"/><path d="M12 12.5V16M9 20h6M10 20l.6-4h2.8l.6 4"/></symbol>
+  <symbol id="ic-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="ic-brk" viewBox="0 0 24 24"><path d="M4 5h5v5H4M4 14h5v5H4M9 7.5h5v9h5M14 16.5h5"/></symbol>
+  <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 3.5l2.5 5.6 6 .6-4.5 4 1.3 6L12 16.7 6.7 19.7 8 13.7l-4.5-4 6-.6z"/></symbol>
+  <symbol id="ic-rocket" viewBox="0 0 24 24"><path d="M5 14c-2 1-2.5 5-2.5 5s4-.5 5-2.5M13.5 6.5C16 4 20 4 20 4s0 4-2.5 6.5l-5 5-4-4z"/><circle cx="15" cy="9" r="1.3"/><path d="M9 11l-4 1M13 15l-1 4"/></symbol>
+  <symbol id="ic-hands" viewBox="0 0 24 24"><path d="M3 9l4-2 5 3 5-3 4 2M3 9v6l5 4 4-3 4 3 5-4V9M12 10v5"/></symbol>
+  <symbol id="capitol" viewBox="0 0 200 120"><path d="M100 8l-7 12h14zM100 20v14M70 50h60M76 50v40M124 50v40M88 56v34M112 56v34M100 56v34M58 90h84M50 100h100M44 110h112"/><path d="M92 40h16v10H92z"/></symbol>
+  <symbol id="bridge" viewBox="0 0 220 120"><path d="M10 100h200M40 100V46M180 100V46M40 46c35-34 105-34 140 0M40 60l140 0M60 100V60M80 100V62M100 100V63M120 100V63M140 100V62M160 100V60"/></symbol>
+</defs></svg>
+
+<svg class="topo-bg" viewBox="0 0 1400 1800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g transform="translate(250 300)"><use href="#contour" transform="scale(2.2)"/><use href="#contour" transform="scale(1.7)"/><use href="#contour" transform="scale(1.2)"/><use href="#contour" transform="scale(.75)"/></g>
+  <g transform="translate(1080 1200) rotate(20)"><use href="#contour" transform="scale(2)"/><use href="#contour" transform="scale(1.5)"/><use href="#contour" transform="scale(1)"/><use href="#contour" transform="scale(.6)"/></g>
+</svg>
+
+<div class="page">
+
+<!-- NAV -->
+<nav><div class="wrap nav-in">
+  <div class="logos">
+    <div class="logo">
+      <svg viewBox="0 0 40 40"><path d="M8 6h16a10 14 0 0 1 0 28H8z" fill="none" stroke="#16273F" stroke-width="3"/><path d="M14 13l8 7-8 7z" fill="#B68F47"/></svg>
+      <div class="lt">District<span>Angels</span></div>
+    </div>
+    <div class="logo sep">
+      <svg viewBox="0 0 40 40"><path d="M20 6 36 34H4z" fill="none" stroke="#16273F" stroke-width="3"/><path d="M20 16l8 14H12z" fill="#16273F"/></svg>
+      <div class="lt">Inspire<span>Access</span></div>
+    </div>
+    <div class="logo sep">
+      <div class="lt" style="line-height:1.1">DC Startup<br>&amp; Tech<br>Week</div>
+    </div>
+  </div>
+  <div class="nav-mid">
+    <a href="#about">About</a><a href="#tournament">Tournament</a><a href="#timeline">Timeline</a><a href="#getinvolved">Get Involved</a><a href="#faq">FAQ</a>
+  </div>
+  <a href="#getinvolved" class="btn btn-gold">Apply Now</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero" id="about"><div class="wrap"><div class="hero-grid">
+  <div class="hero-left">
+    <span class="eyebrow label">The DMV Venture Championship</span>
+    <div class="hero-word">
+      <span class="l">BATTLE</span>
+      <span class="mid"><span class="r"></span><span>OF THE</span></span>
+      <span class="l">REGIONS</span>
+    </div>
+    <div class="vsline"><span class="dc">DC</span><span class="vs">vs</span><span class="md">MARYLAND</span><span class="vs">vs</span><span class="va">VIRGINIA</span></div>
+    <p class="hero-sub">Three regions. The most promising startups.<br><em>One champion.</em></p>
+    <div class="hero-cta">
+      <a href="#getinvolved" class="btn btn-navy">Apply as a Startup</a>
+      <a href="#getinvolved" class="btn btn-out">Become a Judge</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="panels">
+      <div class="panel dc"><div class="img"></div><div class="scrim"></div><div class="content glowpulse"><svg class="so" viewBox="30 20 230 260"><use href="#p-dc"/></svg><div class="plabel">DC</div></div></div>
+      <div class="panel md"><div class="img"></div><div class="scrim"></div><div class="content glowpulse"><svg class="so" viewBox="20 80 230 145"><use href="#p-md"/></svg><div class="plabel">MD</div></div></div>
+      <div class="panel va"><div class="img"></div><div class="scrim"></div><div class="content glowpulse"><svg class="so" viewBox="20 90 260 130"><use href="#p-va"/></svg><div class="plabel">VA</div></div></div>
+    </div>
+  </div>
+</div></div></header>
+
+<!-- STATS -->
+<div class="stats"><div class="wrap"><div class="stats-in">
+  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">16</div><div class="t">Startups</div></div></div>
+  <div class="stat"><svg><use href="#ic-pins"/></svg><div><div class="n">3</div><div class="t">Regions</div></div></div>
+  <div class="stat"><svg><use href="#ic-trophy"/></svg><div><div class="n">1</div><div class="t">Champion</div></div></div>
+  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">500+</div><div class="t">Investors Expected</div></div></div>
+</div></div></div>
+
+<!-- QUADRANT: bracket + leaderboard / timeline + get involved -->
+<div class="quad" id="tournament"><div class="wrap"><div class="quad-grid">
+
+  <!-- bracket -->
+  <div class="cell rv">
+    <h2>The Road to the Championship</h2>
+    <div class="bracket-wrap"><svg class="bracket-svg" id="bracketSvg" viewBox="0 0 600 470" aria-label="Tournament bracket"></svg></div>
+    <div class="legend">
+      <span><i style="background:var(--dc)"></i>DC</span>
+      <span><i style="background:var(--md)"></i>Maryland</span>
+      <span><i style="background:var(--va)"></i>Virginia</span>
+    </div>
+  </div>
+
+  <!-- leaderboard -->
+  <div class="cell rv">
+    <h2>Live Regional Leaderboard</h2>
+    <div class="lb">
+      <table>
+        <thead><tr><th>Region</th><th>Advanced</th><th>Points</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="reg"><svg class="dc-c" viewBox="30 20 230 260" style="stroke:var(--dc)"><use href="#p-dc"/></svg><span class="rn dc-c">DC</span></div></td>
+            <td class="num dc-c">5</td><td class="num dc-c">50</td>
+          </tr>
+          <tr>
+            <td><div class="reg"><svg class="md-c" viewBox="20 80 230 145" style="stroke:var(--md)"><use href="#p-md"/></svg><span class="rn md-c">Maryland</span></div></td>
+            <td class="num md-c">4</td><td class="num md-c">40</td>
+          </tr>
+          <tr>
+            <td><div class="reg"><svg class="va-c" viewBox="20 90 260 130" style="stroke:var(--va)"><use href="#p-va"/></svg><span class="rn va-c">Virginia</span></div></td>
+            <td class="num va-c">3</td><td class="num va-c">30</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="lb-foot"><a href="#" class="btn btn-out" style="font-size:11px;padding:11px 20px">View Full Standings →</a></div>
+    </div>
+  </div>
+
+  <!-- timeline -->
+  <div class="cell rv" id="timeline">
+    <h2>Tournament Timeline</h2>
+    <div class="flow">
+      <div class="step"><div class="circle"><svg><use href="#ic-cal"/></svg></div><div class="dt">July 2026</div><div class="ds">Applications Open</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="circle"><svg><use href="#ic-users"/></svg></div><div class="dt">August 2026</div><div class="ds">Regional Selection</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="circle"><svg><use href="#ic-brk"/></svg></div><div class="dt">September 2026</div><div class="ds">Tournament Rounds</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="circle"><svg><use href="#ic-star"/></svg></div><div class="dt">October 2026</div><div class="ds">Regional Finals</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="circle"><svg><use href="#ic-trophy"/></svg></div><div class="dt">November 2026</div><div class="ds">Championship at DC Startup &amp; Tech Week</div></div>
+    </div>
+    <div class="tl-tag"><span class="stars">★ ★</span><span class="s">16 Startups.</span><span class="s">3 Regions.</span><span class="s">1 Champion.</span><span class="stars">★ ★</span></div>
+  </div>
+
+  <!-- get involved -->
+  <div class="cell rv" id="getinvolved">
+    <h2>Get Involved</h2>
+    <div class="gi">
+      <div class="gi-card"><svg><use href="#ic-rocket"/></svg><h4>Founders</h4><p>Apply to compete and represent your region.</p><a href="#">Apply Now →</a></div>
+      <div class="gi-card"><svg><use href="#ic-users"/></svg><h4>Investors</h4><p>Join the judging panel, discover startups, and make an impact.</p><a href="#">Become a Judge →</a></div>
+      <div class="gi-card"><svg><use href="#ic-hands"/></svg><h4>Partners</h4><p>Support regional innovation and help elevate the ecosystem.</p><a href="#">Partner With Us →</a></div>
+      <div class="gi-card"><svg><use href="#ic-users"/></svg><h4>Community</h4><p>Follow the tournament, attend events, and support your region.</p><a href="#">Join the Community →</a></div>
+    </div>
+  </div>
+
+</div></div></div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="art l"><svg viewBox="0 0 200 120"><use href="#capitol"/></svg></div>
+  <div class="art r"><svg viewBox="0 0 220 120"><use href="#bridge"/></svg></div>
+  <div class="wrap cta-in">
+    <span class="stars">★ ★ ★</span>
+    <h2>One Region Will Rise.</h2>
+    <div class="cta-divider"></div>
+    <div class="rep">Represent Your Region.</div>
+    <div class="appl">Applications open July 2026.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer><div class="wrap foot">
+  <div class="logos">
+    <div class="logo">
+      <svg viewBox="0 0 40 40"><path d="M8 6h16a10 14 0 0 1 0 28H8z" fill="none" stroke="#fff" stroke-width="3"/><path d="M14 13l8 7-8 7z" fill="#C8A765"/></svg>
+      <div class="lt">District<span>Angels</span></div>
+    </div>
+    <div class="logo sep">
+      <svg viewBox="0 0 40 40"><path d="M20 6 36 34H4z" fill="none" stroke="#fff" stroke-width="3"/><path d="M20 16l8 14H12z" fill="#fff"/></svg>
+      <div class="lt">Inspire<span>Access</span></div>
+    </div>
+    <div class="logo sep"><div class="lt" style="line-height:1.1">DC Startup<br>&amp; Tech Week</div></div>
+  </div>
+  <div class="foot-right">
+    <span class="fj">Follow the Journey</span>
+    <div class="soc">
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.1L8 21H5l7.5-8.6L4.6 3H11l4.5 5.6zM16.3 19h1.7L8 5H6.2z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.25.07 1.62.07 4.81s0 3.56-.07 4.81c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.25.06-1.62.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.56.07-4.81c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.44 2.2 8.8 2.2 12 2.2zm0 3.16A6.64 6.64 0 1 0 18.64 12 6.64 6.64 0 0 0 12 5.36zm0 10.96A4.32 4.32 0 1 1 16.32 12 4.32 4.32 0 0 1 12 16.32zM18.9 5.1a1.55 1.55 0 1 1-1.55-1.55A1.55 1.55 0 0 1 18.9 5.1z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.76-1.77C19.3 5.1 12 5.1 12 5.1s-7.3 0-8.84.43A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.76 1.77C4.7 18.9 12 18.9 12 18.9s7.3 0 8.84-.43a2.5 2.5 0 0 0 1.76-1.77C23 15.2 23 12 23 12zM9.75 15.02V8.98L15.5 12z"/></svg></a>
+    </div>
+  </div>
+</div></footer>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // build Round-of-16 bracket SVG
+  (function(){
+    const NS='http://www.w3.org/2000/svg';
+    const svg=document.getElementById('bracketSvg');
+    const W=600,H=470, top=46, areaH=H-top-22;
+    const cols=[{x:14,w:104,n:16},{x:150,w:96,n:8},{x:280,w:96,n:4},{x:400,w:96,n:2}];
+    const headers=['Round of 16','Quarterfinals','Semifinals','Championship'];
+    const champX=512, champW=78;
+    function y(n,i){const band=areaH/n;return top+band*(i+0.5);}
+    function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+    // headers
+    cols.forEach((c,ci)=>{
+      const h=el('text',{x:c.x+c.w/2,y:24,'text-anchor':'middle','font-family':'Inter','font-size':10,'font-weight':600,'letter-spacing':'1','fill':'#16273F'});
+      h.textContent=headers[ci].toUpperCase();h.style.textTransform='uppercase';svg.appendChild(h);
+    });
+    // connectors
+    for(let ci=0;ci<cols.length-1;ci++){
+      const c=cols[ci],c1=cols[ci+1];
+      for(let j=0;j<c1.n;j++){
+        const ya=y(c.n,2*j),yb=y(c.n,2*j+1),yp=y(c1.n,j);
+        const xr=c.x+c.w, xl=c1.x, mx=(xr+xl)/2;
+        [`M${xr} ${ya} H${mx}`,`M${xr} ${yb} H${mx}`,`M${mx} ${ya} V${yb}`,`M${mx} ${yp} H${xl}`].forEach(d=>{
+          svg.appendChild(el('path',{d:d,stroke:'#D8C9A8','stroke-width':1.1,fill:'none'}));
+        });
+      }
+    }
+    // last col -> champion
+    {
+      const c=cols[3];const ya=y(c.n,0),yb=y(c.n,1),yc=H/2;
+      const xr=c.x+c.w,xl=champX,mx=(xr+xl)/2;
+      [`M${xr} ${ya} H${mx}`,`M${xr} ${yb} H${mx}`,`M${mx} ${ya} V${yb}`,`M${mx} ${yc} H${xl}`].forEach(d=>{
+        svg.appendChild(el('path',{d:d,stroke:'#D8C9A8','stroke-width':1.1,fill:'none'}));
+      });
+    }
+    // slots
+    cols.forEach((c,ci)=>{
+      for(let i=0;i<c.n;i++){
+        const yy=y(c.n,i);
+        svg.appendChild(el('rect',{x:c.x,y:yy-8,width:c.w,height:16,rx:3,fill:'#FBF9F3',stroke:'#D9CDB4','stroke-width':1}));
+        if(ci===0){
+          const t=el('text',{x:c.x+9,y:yy+3.5,'font-family':'Playfair Display','font-size':10,fill:'#8A8270'});
+          t.textContent=(i+1);svg.appendChild(t);
+        }
+      }
+    });
+    // champion
+    const cy=H/2;
+    const circ=el('circle',{cx:champX+champW/2,cy:cy-14,r:30,fill:'none',stroke:'#B68F47','stroke-width':1.4});svg.appendChild(circ);
+    const use=el('use',{href:'#ic-trophy',x:champX+champW/2-15,y:cy-29,width:30,height:30});
+    use.setAttribute('stroke','#B68F47');use.setAttribute('fill','none');use.setAttribute('stroke-width','1.4');svg.appendChild(use);
+    const t1=el('text',{x:champX+champW/2,y:cy+30,'text-anchor':'middle','font-family':'Playfair Display','font-size':16,'font-weight':700,fill:'#16273F'});t1.textContent='CHAMPION';svg.appendChild(t1);
+    const t2=el('text',{x:champX+champW/2,y:cy+44,'text-anchor':'middle','font-family':'Inter','font-size':8,'letter-spacing':'.5',fill:'#5F6B7A'});t2.textContent='LIVE AT DC STARTUP';svg.appendChild(t2);
+    const t3=el('text',{x:champX+champW/2,y:cy+55,'text-anchor':'middle','font-family':'Inter','font-size':8,'letter-spacing':'.5',fill:'#5F6B7A'});t3.textContent='& TECH WEEK';svg.appendChild(t3);
+  })();
+</script>
+</body>
+</html>
