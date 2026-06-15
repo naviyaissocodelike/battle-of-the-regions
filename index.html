@@ -50,6 +50,18 @@
   .logo .lt span{display:block;font-weight:500;color:var(--gold);font-size:9.5px;letter-spacing:.14em}
   .logo svg{width:30px;height:30px}
   .logo.sep{padding-left:26px;border-left:1px solid var(--line)}
+  .lg-mark{width:34px;height:34px;flex:none}
+  .lt-da{font-family:'Inter';font-weight:800;font-size:11px;letter-spacing:.06em;line-height:1.02;text-transform:uppercase;color:var(--navy)}
+  .lt-ia{font-family:'Playfair Display',serif;font-weight:600;font-size:15px;line-height:1;color:var(--navy)}
+  .dcstw{font-family:'Inter';font-weight:900;font-size:21px;letter-spacing:-1.2px;color:var(--navy);align-items:center}
+  .dcstw .pk{color:#EC1077}
+  footer .lt-da,footer .lt-ia,footer .dcstw{color:#fff}
+  .lg-img{height:42px;width:auto;display:block;object-fit:contain}
+  .blend{mix-blend-mode:multiply}
+  .logo-chip{background:#fff;border-radius:6px;padding:8px 13px;display:flex;align-items:center}
+  .logo-chip img{height:26px;width:auto;display:block}
+  .proof .built-logo{height:104px;width:auto;display:block;margin:0 auto}
+  .proof-logos img{height:46px;width:auto}
   .nav-mid{display:flex;gap:28px;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--navy)}
   .nav-mid a{color:var(--navy);opacity:.78;transition:opacity .2s}
   .nav-mid a:hover{opacity:1;color:var(--gold)}
@@ -184,6 +196,54 @@
 
   .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
   .rv.in{opacity:1;transform:none}
+
+  /* PARTICIPATE persona tabs */
+  .participate{padding:96px 0;border-bottom:1px solid var(--line)}
+  .ptabs{display:flex;justify-content:center;gap:8px;margin-top:36px;flex-wrap:wrap}
+  .ptab{font-family:'Inter';font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:13px 28px;border:1px solid var(--line);background:var(--paper);cursor:pointer;transition:all .2s}
+  .ptab[aria-selected="true"]{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  .ppanel{display:none;max-width:880px;margin:46px auto 0}
+  .ppanel.on{display:block}
+  .ppanel .ph{font-family:'Playfair Display';font-weight:700;font-size:clamp(28px,3.6vw,44px);color:var(--navy);text-align:center;line-height:1.06}
+  .ppanel .psub{text-align:center;color:#3c4757;margin:16px auto 0;max-width:50ch;font-size:16px}
+  .pbenefits{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin:36px auto 0;max-width:780px}
+  .pbenefit{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#3c4757}
+  .pbenefit svg{width:20px;height:20px;flex:none;stroke:var(--gold);fill:none;stroke-width:2.2;margin-top:3px}
+  .pcta{text-align:center;margin-top:34px}
+  @media(max-width:680px){.pbenefits{grid-template-columns:1fr}}
+
+  /* WHAT'S AT STAKE band */
+  .stake{background:var(--navy);color:var(--cream);padding:60px 0}
+  .stake .sh{text-align:center;font-family:'Inter';font-weight:700;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-2);margin-bottom:34px}
+  .stake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 48px;max-width:900px;margin:0 auto}
+  .stake-item{display:flex;gap:13px;align-items:center;font-family:'Playfair Display';font-size:21px}
+  .stake-item svg{width:22px;height:22px;flex:none;stroke:var(--gold-2);fill:none;stroke-width:2.4}
+  @media(max-width:760px){.stake-grid{grid-template-columns:1fr;max-width:340px;gap:16px}}
+
+  /* SPONSORS why + metrics */
+  .sponsor{padding:100px 0;border-bottom:1px solid var(--line)}
+  .sponsor-copy{max-width:640px;margin:24px auto 0;text-align:center;color:#3c4757;font-size:18px;line-height:1.75}
+  .metrics{display:grid;grid-template-columns:repeat(5,1fr);margin-top:58px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .metric{text-align:center;padding:34px 14px;border-left:1px solid var(--line)}
+  .metric:first-child{border-left:none}
+  .metric .mn{font-family:'Playfair Display';font-weight:700;font-size:42px;color:var(--navy);line-height:1}
+  .metric .ml{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:9px}
+  @media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(odd){border-left:none}.metric:nth-child(n+3){border-top:1px solid var(--line)}}
+
+  /* VOLUNTEERS */
+  .vol{padding:96px 0;border-bottom:1px solid var(--line);text-align:center}
+  .vol-chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:780px;margin:34px auto 0}
+  .vol-chip{font-family:'Inter';font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--navy);padding:12px 22px;border:1px solid var(--line);background:var(--paper)}
+
+  /* SOCIAL PROOF */
+  .proof{padding:92px 0;text-align:center}
+  .proof .pl{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  .proof .built{font-family:'Playfair Display';font-weight:700;font-size:32px;color:var(--navy)}
+  .proof .ip{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);margin:40px 0 24px}
+  .proof-logos{display:flex;flex-wrap:wrap;gap:42px;justify-content:center;align-items:center}
+  .proof-logos .logo,.proof-logos .dcstw{gap:11px}
+  .proof-cats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:38px}
+  .proof-cat{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:9px 18px;border:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -204,6 +264,10 @@
   <symbol id="ic-hands" viewBox="0 0 24 24"><path d="M3 9l4-2 5 3 5-3 4 2M3 9v6l5 4 4-3 4 3 5-4V9M12 10v5"/></symbol>
   <symbol id="capitol" viewBox="0 0 200 120"><path d="M100 8l-7 12h14zM100 20v14M70 50h60M76 50v40M124 50v40M88 56v34M112 56v34M100 56v34M58 90h84M50 100h100M44 110h112"/><path d="M92 40h16v10H92z"/></symbol>
   <symbol id="bridge" viewBox="0 0 220 120"><path d="M10 100h200M40 100V46M180 100V46M40 46c35-34 105-34 140 0M40 60l140 0M60 100V60M80 100V62M100 100V63M120 100V63M140 100V62M160 100V60"/></symbol>
+  <linearGradient id="da-split" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D8403F"/><stop offset="50%" stop-color="#D8403F"/><stop offset="50%" stop-color="#2F5FA8"/><stop offset="100%" stop-color="#2F5FA8"/></linearGradient>
+  <symbol id="lg-dome" viewBox="0 0 100 100"><g fill="url(#da-split)"><path d="M50 7 L46.5 15 L53.5 15 Z"/><rect x="46" y="14" width="8" height="6"/><path d="M30 53 Q50 16 70 53 Z"/><rect x="31" y="52" width="38" height="12"/><rect x="24" y="64" width="52" height="6"/><rect x="17" y="70" width="66" height="6"/></g></symbol>
+  <symbol id="lg-ia" viewBox="0 0 100 100"><g fill="#8C9EEB"><path d="M28 43 L13 77 L43 77 Z"/><path d="M60 13 L35 77 L87 77 Z"/></g></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <svg class="topo-bg" viewBox="0 0 1400 1800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -216,20 +280,12 @@
 <!-- NAV -->
 <nav><div class="wrap nav-in">
   <div class="logos">
-    <div class="logo">
-      <svg viewBox="0 0 40 40"><path d="M8 6h16a10 14 0 0 1 0 28H8z" fill="none" stroke="#16273F" stroke-width="3"/><path d="M14 13l8 7-8 7z" fill="#B68F47"/></svg>
-      <div class="lt">District<span>Angels</span></div>
-    </div>
-    <div class="logo sep">
-      <svg viewBox="0 0 40 40"><path d="M20 6 36 34H4z" fill="none" stroke="#16273F" stroke-width="3"/><path d="M20 16l8 14H12z" fill="#16273F"/></svg>
-      <div class="lt">Inspire<span>Access</span></div>
-    </div>
-    <div class="logo sep">
-      <div class="lt" style="line-height:1.1">DC Startup<br>&amp; Tech<br>Week</div>
-    </div>
+    <img class="lg-img blend" src="da-logo.png" alt="District Angels">
+    <img class="lg-img blend" src="ia-logo.jpeg" alt="Inspire Access">
+    <img class="lg-img blend" src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week">
   </div>
   <div class="nav-mid">
-    <a href="#about">About</a><a href="#tournament">Tournament</a><a href="#timeline">Timeline</a><a href="#getinvolved">Get Involved</a><a href="#faq">FAQ</a>
+    <a href="#about">About</a><a href="#tournament">Tournament</a><a href="#participate" data-panel="founders">Founders</a><a href="#participate" data-panel="investors">Investors</a><a href="#sponsors">Partners</a><a href="#volunteers">Volunteers</a>
   </div>
   <a href="#getinvolved" class="btn btn-gold">Apply Now</a>
 </div></nav>
@@ -244,10 +300,11 @@
       <span class="l">REGIONS</span>
     </div>
     <div class="vsline"><span class="dc">DC</span><span class="vs">vs</span><span class="md">MARYLAND</span><span class="vs">vs</span><span class="va">VIRGINIA</span></div>
-    <p class="hero-sub">Three regions. The most promising startups.<br><em>One champion.</em></p>
+    <p class="hero-sub">Three regions. The DMV's most promising startups.<br><em>One champion.</em></p>
     <div class="hero-cta">
-      <a href="#getinvolved" class="btn btn-navy">Apply as a Startup</a>
-      <a href="#getinvolved" class="btn btn-out">Become a Judge</a>
+      <a href="#participate" data-panel="founders" class="btn btn-navy">Apply to Compete</a>
+      <a href="#participate" data-panel="investors" class="btn btn-out">Become a Judge</a>
+      <a href="#sponsors" class="btn btn-gold">Partner With Us</a>
     </div>
   </div>
   <div class="hero-right">
@@ -259,13 +316,83 @@
   </div>
 </div></div></header>
 
+<!-- WHY PARTICIPATE -->
+<section class="participate" id="participate">
+  <div class="wrap center">
+    <span class="eyebrow label gold-clr">Why Take Part</span>
+    <h2 class="sec-h" style="font-size:clamp(34px,5vw,58px);margin-top:14px">More than a competition</h2>
+    <div class="ptabs" role="tablist">
+      <button class="ptab" role="tab" aria-selected="true" data-panel="founders">Founders</button>
+      <button class="ptab" role="tab" aria-selected="false" data-panel="investors">Investors</button>
+      <button class="ptab" role="tab" aria-selected="false" data-panel="partners">Partners</button>
+    </div>
+
+    <div class="ppanel on" id="p-founders">
+      <div class="ph">Win more than a trophy</div>
+      <p class="psub">The champion walks away with new investors, new customers, new champions, and a far larger platform.</p>
+      <div class="pbenefits">
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Pitch in front of 500+ investors, operators, and ecosystem leaders</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Gain visibility across the DMV's largest innovation communities</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Coaching and feedback from active angels and VCs</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Build relationships with customers, advisors, and partners</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Compete for non-dilutive capital</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Earn the title of DMV Champion</div>
+      </div>
+      <div class="pcta"><a href="#getinvolved" class="btn btn-navy">Apply to Compete</a></div>
+    </div>
+
+    <div class="ppanel" id="p-investors">
+      <div class="ph">See the DMV's most promising startups first</div>
+      <p class="psub">Judge the rounds and get curated access to founders before fundraising accelerates.</p>
+      <div class="pbenefits">
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Curated access to top founders across DC, Maryland, and Virginia</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Evaluate companies alongside experienced angels and VCs</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Sit on the regional judging panels</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Build relationships before rounds come together</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Privileged deal flow through the District Angels network</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Help crown the next DMV champion</div>
+      </div>
+      <div class="pcta"><a href="#getinvolved" class="btn btn-navy">Become a Judge</a></div>
+    </div>
+
+    <div class="ppanel" id="p-partners">
+      <div class="ph">Why sponsors back Battle of the Regions</div>
+      <p class="psub">Reach the region's most ambitious founders, investors, students, and operators, and fund non-dilutive capital for startups.</p>
+      <div class="pbenefits">
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Brand presence across all three regions and the championship</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Direct access to early-stage talent and founders</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Relationships with the next generation of DMV companies</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Curated deal flow and co-investment opportunities</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Visibility with investors, universities, and operators</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Support the DMV's flagship startup championship</div>
+      </div>
+      <div class="pcta"><a href="#sponsors" class="btn btn-gold">Partner With Us</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- STATS -->
 <div class="stats"><div class="wrap"><div class="stats-in">
-  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">16</div><div class="t">Startups</div></div></div>
+  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">36</div><div class="t">Startups</div></div></div>
   <div class="stat"><svg><use href="#ic-pins"/></svg><div><div class="n">3</div><div class="t">Regions</div></div></div>
   <div class="stat"><svg><use href="#ic-trophy"/></svg><div><div class="n">1</div><div class="t">Champion</div></div></div>
   <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">500+</div><div class="t">Investors Expected</div></div></div>
 </div></div></div>
+
+<!-- WHAT'S AT STAKE -->
+<section class="stake">
+  <div class="wrap">
+    <div class="sh">What's at Stake</div>
+    <div class="stake-grid">
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Investor visibility</div>
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Regional recognition</div>
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Non-dilutive capital</div>
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Press coverage</div>
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Strategic introductions</div>
+      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>The championship title</div>
+    </div>
+  </div>
+</section>
 
 <!-- QUADRANT: bracket + leaderboard / timeline + get involved -->
 <div class="quad" id="tournament"><div class="wrap"><div class="quad-grid">
@@ -320,7 +447,7 @@
       <div class="arrow">→</div>
       <div class="step"><div class="circle"><svg><use href="#ic-trophy"/></svg></div><div class="dt">November 2026</div><div class="ds">Championship at DC Startup &amp; Tech Week</div></div>
     </div>
-    <div class="tl-tag"><span class="stars">★ ★</span><span class="s">16 Startups.</span><span class="s">3 Regions.</span><span class="s">1 Champion.</span><span class="stars">★ ★</span></div>
+    <div class="tl-tag"><span class="stars">★ ★</span><span class="s">36 Startups.</span><span class="s">3 Regions.</span><span class="s">1 Champion.</span><span class="stars">★ ★</span></div>
   </div>
 
   <!-- get involved -->
@@ -335,6 +462,60 @@
   </div>
 
 </div></div></div>
+
+<!-- SPONSORS -->
+<section class="sponsor" id="sponsors">
+  <div class="wrap center">
+    <span class="eyebrow label gold-clr">Partners &amp; Sponsors</span>
+    <h2 class="sec-h" style="font-size:clamp(34px,5vw,58px);margin-top:14px">Why sponsors back the championship</h2>
+    <p class="sponsor-copy">Reach the region's most ambitious founders, investors, students, and operators. Support non-dilutive capital for startups. Build relationships with the next generation of companies shaping the DMV.</p>
+    <div class="metrics">
+      <div class="metric"><div class="mn">36</div><div class="ml">Startups</div></div>
+      <div class="metric"><div class="mn">40+</div><div class="ml">Investors &amp; Judges</div></div>
+      <div class="metric"><div class="mn">500+</div><div class="ml">Community Members</div></div>
+      <div class="metric"><div class="mn">3</div><div class="ml">Regions</div></div>
+      <div class="metric"><div class="mn">1</div><div class="ml">Championship</div></div>
+    </div>
+    <div class="pcta" style="margin-top:42px"><a href="#" class="btn btn-gold">Partner With Us</a></div>
+  </div>
+</section>
+
+<!-- VOLUNTEERS -->
+<section class="vol" id="volunteers">
+  <div class="wrap">
+    <span class="eyebrow label gold-clr">Join the Team</span>
+    <h2 class="sec-h" style="font-size:clamp(34px,5vw,58px);margin-top:14px">Help build the DMV's flagship championship</h2>
+    <div class="vol-chips">
+      <span class="vol-chip">Founder Success</span>
+      <span class="vol-chip">Operations</span>
+      <span class="vol-chip">Marketing</span>
+      <span class="vol-chip">Community</span>
+      <span class="vol-chip">Partnerships</span>
+      <span class="vol-chip">Investor Relations</span>
+      <span class="vol-chip">Event Production</span>
+    </div>
+    <div class="pcta"><a href="#" class="btn btn-out">Volunteer</a></div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="wrap">
+    <div class="pl">Built By</div>
+    <img class="built-logo blend" src="da-logo.png" alt="District Angels">
+    <div class="ip">In Partnership With</div>
+    <div class="proof-logos">
+      <img class="blend" src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week">
+      <img class="blend" src="ia-logo.jpeg" alt="Inspire Access">
+    </div>
+    <div class="proof-cats">
+      <span class="proof-cat">Universities</span>
+      <span class="proof-cat">Accelerators</span>
+      <span class="proof-cat">VC Firms</span>
+      <span class="proof-cat">Coworking Spaces</span>
+    </div>
+  </div>
+</section>
 
 <!-- CTA -->
 <section class="cta">
@@ -352,15 +533,9 @@
 <!-- FOOTER -->
 <footer><div class="wrap foot">
   <div class="logos">
-    <div class="logo">
-      <svg viewBox="0 0 40 40"><path d="M8 6h16a10 14 0 0 1 0 28H8z" fill="none" stroke="#fff" stroke-width="3"/><path d="M14 13l8 7-8 7z" fill="#C8A765"/></svg>
-      <div class="lt">District<span>Angels</span></div>
-    </div>
-    <div class="logo sep">
-      <svg viewBox="0 0 40 40"><path d="M20 6 36 34H4z" fill="none" stroke="#fff" stroke-width="3"/><path d="M20 16l8 14H12z" fill="#fff"/></svg>
-      <div class="lt">Inspire<span>Access</span></div>
-    </div>
-    <div class="logo sep"><div class="lt" style="line-height:1.1">DC Startup<br>&amp; Tech Week</div></div>
+    <div class="logo-chip"><img src="da-logo.png" alt="District Angels"></div>
+    <div class="logo-chip"><img src="ia-logo.jpeg" alt="Inspire Access"></div>
+    <div class="logo-chip"><img src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week"></div>
   </div>
   <div class="foot-right">
     <span class="fj">Follow the Journey</span>
@@ -378,6 +553,15 @@
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // persona tabs
+  function showPanel(name){
+    document.querySelectorAll('.ptab').forEach(t=>t.setAttribute('aria-selected', t.dataset.panel===name?'true':'false'));
+    document.querySelectorAll('.ppanel').forEach(p=>p.classList.toggle('on', p.id==='p-'+name));
+  }
+  document.querySelectorAll('[data-panel]').forEach(el=>{
+    el.addEventListener('click',()=>{ if(el.dataset.panel) showPanel(el.dataset.panel); });
+  });
 
   // build Round-of-16 bracket SVG
   (function(){
