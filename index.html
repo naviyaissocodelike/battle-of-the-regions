@@ -198,6 +198,22 @@
   .rv.in{opacity:1;transform:none}
 
   /* PARTICIPATE persona tabs */
+  /* about blurb */
+  .about-blurb{background:var(--cream);padding:96px 0;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .about-blurb-bg-num{position:absolute;right:-1%;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:clamp(240px,28vw,380px);line-height:1;color:rgba(16,35,64,.04);font-weight:700;pointer-events:none;user-select:none;letter-spacing:-8px}
+  .about-blurb-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
+  .about-blurb-badges{display:flex;gap:10px;justify-content:center;margin-bottom:36px}
+  .ab-badge{font-family:'Inter';font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1px solid}
+  .ab-badge.dc{color:var(--dc);border-color:rgba(58,107,168,.35);background:rgba(58,107,168,.07)}
+  .ab-badge.md{color:var(--md);border-color:rgba(192,57,43,.35);background:rgba(192,57,43,.07)}
+  .ab-badge.va{color:#2d7a3a;border-color:rgba(65,145,80,.35);background:rgba(65,145,80,.07)}
+  .about-blurb-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,5vw,64px);line-height:1.08;color:var(--navy);font-weight:700;text-align:center;margin:0 0 28px}
+  .about-blurb-title em{font-style:italic;color:var(--gold)}
+  .about-blurb-rule{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto 32px}
+  .about-blurb-text{font-size:clamp(15px,1.3vw,17px);line-height:1.9;color:#4a5568;margin:0 auto;text-align:center;font-family:'Inter',sans-serif;max-width:640px}
+  .about-blurb-text strong{color:var(--navy);font-weight:600}
+  @media(max-width:640px){.about-blurb{padding:72px 0}.about-blurb-bg-num{display:none}}
+
   .participate{padding:96px 0;border-bottom:1px solid var(--line);text-align:center}
   .ptabs{display:flex;justify-content:center;gap:8px;margin-top:36px;flex-wrap:wrap}
   .ptab{font-family:'Inter';font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:13px 28px;border:1px solid var(--line);background:var(--paper);cursor:pointer;transition:all .2s}
@@ -536,6 +552,23 @@
     <div class="hero-right-img"></div>
   </div>
 </div></div></header>
+
+<!-- ABOUT BLURB -->
+<section class="about-blurb">
+  <div class="wrap">
+    <div class="about-blurb-bg-num">01</div>
+    <div class="about-blurb-inner rv">
+      <div class="about-blurb-badges">
+        <span class="ab-badge dc">D.C.</span>
+        <span class="ab-badge md">Maryland</span>
+        <span class="ab-badge va">Virginia</span>
+      </div>
+      <h2 class="about-blurb-title">Where the DMV's<br><em>Best Compete.</em></h2>
+      <div class="about-blurb-rule"></div>
+      <p class="about-blurb-text">The Battle of the Regions brings together the brightest startups from D.C., Maryland, and Virginia in a <strong>high-stakes, single-elimination pitch competition</strong> designed to crown the DMV's top entrepreneurial talent. Competing for capital, visibility, and the title of regional champion, founders will go head-to-head until <strong>only one startup emerges victorious.</strong></p>
+    </div>
+  </div>
+</section>
 
 <!-- WHY PARTICIPATE -->
 <section class="participate" id="participate">
