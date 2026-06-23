@@ -72,11 +72,11 @@
   }
   @media(max-width:640px){
     .nav-in{height:60px}
-    .lg-img{height:32px}
-    .logos{gap:12px}
+    .logos .lg-img{height:24px}
+    .logos .lg-img:nth-child(3){height:16px}
+    .logos{gap:8px}
     .nav-burger{display:flex}
     .nav-btns{display:none}
-    .logos .lg-img:nth-child(n+3){display:none}
   }
   .logo{display:flex;align-items:center;gap:9px}
   .logo .lt{font-family:'Inter';font-weight:800;font-size:11px;letter-spacing:.06em;line-height:1.05;text-transform:uppercase;color:var(--navy)}
@@ -428,74 +428,60 @@
     .proof-logos img{height:36px}
   }
 
-  /* Mobile: 640px */
+  /* Mobile: 640px — seamless tower layout */
   @media(max-width:640px){
-    .wrap{padding:0 18px}
-
-    /* nav */
-    .nav-in{height:64px}
-    .logos img.lg-img{height:26px}
-    .logos{gap:14px}
+    /* base container */
+    .wrap{padding:0 20px}
+    .page{overflow-x:hidden}
 
     /* hero */
-    .hero-left{padding:48px 0 44px;align-items:center;text-align:center}
+    .hero-left{padding:52px 0 48px;align-items:center;text-align:center}
     .hero-left .eyebrow{justify-content:center}
     .hero-word .l{font-size:clamp(52px,15vw,80px)}
     .hero-cta{flex-direction:column;align-items:stretch;gap:10px}
-    .hero-cta .btn{width:100%;justify-content:center;font-size:12px;padding:15px 20px}
+    .hero-cta .btn{width:100%;justify-content:center;font-size:13px;padding:16px 20px}
+
+    /* about blurb */
+    .about-blurb{padding:56px 0}
+    .about-blurb-bg-num{display:none}
 
     /* participate */
+    .participate{padding:60px 0}
     .ptabs{flex-direction:row;justify-content:center}
-    .ptab{padding:10px 18px;font-size:11px}
-    .ppanel .ph{font-size:clamp(22px,6vw,34px)}
-    .pbenefits{grid-template-columns:1fr;gap:10px 0}
+    .ptab{padding:10px 16px;font-size:11px}
+    .ppanel .ph{font-size:clamp(22px,6vw,32px)}
+    .pbenefits{grid-template-columns:1fr;gap:10px}
 
-    /* stats */
+    /* sponsors */
+    .sponsor{padding:52px 0}
     .stats-in{grid-template-columns:1fr 1fr}
-    .stat{padding:22px 12px;gap:10px}
-    .stat .n{font-size:32px}
+    .stat{padding:20px 10px;gap:8px}
+    .stat .n{font-size:30px}
+    .sp-gcards{grid-template-columns:1fr}
+    .sp-tiers-grid{grid-template-columns:1fr}
 
-    /* stake */
-    .stake{padding:52px 0}
-    .stake-grid{grid-template-columns:1fr 1fr;gap:10px}
-    .stake-item{padding:20px 12px}
-    .stake-item span{font-size:15px}
-
-    /* tournament */
+    /* timeline */
     .tournament-section{padding:52px 0}
-    .tournament-grid{grid-template-columns:1fr;gap:20px}
-    .tournament-card{padding:24px 20px}
-    .bracket-svg{min-width:420px}
-
-    /* sponsor metrics */
-    .metrics{grid-template-columns:1fr 1fr}
-    .metric:nth-child(odd){border-left:none}
-    .metric:nth-child(n+3){border-top:1px solid var(--line)}
-    .metric .mn{font-size:32px}
-    .sponsor{padding:60px 0}
 
     /* volunteers */
-    .vol{padding:60px 0}
+    .vol{padding:52px 0}
     .vol-chips{gap:8px}
-    .vol-chip{font-size:12px;padding:10px 16px}
+    .vol-chip{font-size:12px;padding:10px 14px}
 
-    /* proof */
-    .proof{padding:60px 0}
-    .proof-logos{gap:20px}
-    .proof-logos img{height:28px}
+    /* builders */
+    .bcard-inner{grid-template-columns:1fr}
+    .bcard-logo-wrap{display:none}
 
-    /* cta */
-    .cta{padding:64px 0 56px}
-    .cta h2{font-size:clamp(32px,9vw,56px)}
+    /* cta band */
+    .cta{padding:56px 0 48px}
+    .cta h2{font-size:clamp(28px,9vw,48px)}
 
     /* footer */
-    .foot{flex-direction:column;align-items:center;text-align:center;gap:24px}
-    .logos.foot-logos{flex-wrap:wrap;justify-content:center}
+    .foot{flex-direction:column;align-items:center;text-align:center;gap:20px}
     .foot-social{align-items:center}
     .foot-social-links{justify-content:center}
-
-    /* quad cells */
-    .cell{padding:36px 20px}
+    .foot .logos{flex-wrap:wrap;justify-content:center;gap:12px}
+    .foot .logo-chip img{height:20px}
   }
 
   /* Small mobile: 400px */
