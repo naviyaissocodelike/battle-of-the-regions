@@ -240,6 +240,149 @@
   .proof-cats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:38px}
   .proof-cat{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:9px 18px;border:1px solid var(--line)}
 
+  /* BUILDERS */
+  .builders{padding:92px 0;border-bottom:1px solid var(--line)}
+  .builders-head{text-align:center;margin-bottom:48px}
+  .builders-sub{color:var(--mute);font-size:15px;margin-top:12px;max-width:48ch;margin-left:auto;margin-right:auto}
+  .bcard{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(--paper);transition:box-shadow .2s}
+  .bcard:hover{box-shadow:0 4px 20px rgba(22,39,63,.08)}
+  .bcard-trigger{width:100%;display:flex;align-items:center;gap:20px;padding:20px 28px;background:none;border:none;cursor:pointer;text-align:left}
+  .bcard-trigger:hover{background:rgba(182,143,71,.04)}
+  .bcard-logo{height:40px;width:auto;object-fit:contain;flex:none}
+  .bcard-name{font-family:'Inter';font-weight:700;font-size:15px;color:var(--navy);flex:1}
+  .bcard-chevron{font-size:16px;color:var(--gold);transition:transform .3s;flex:none;line-height:1}
+  .bcard.open .bcard-chevron{transform:rotate(180deg)}
+  .bcard-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
+  .bcard.open .bcard-body{max-height:400px}
+  .bcard-inner{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:0 28px 28px;align-items:start}
+  .bcard-logo-wrap{display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:6px;padding:20px;border:1px solid var(--line)}
+  .bcard-inner-logo{width:100%;height:auto;max-height:80px;object-fit:contain}
+  .bcard-bio{font-size:14.5px;color:#3c4757;line-height:1.7;margin-bottom:20px}
+  .bcard-links{display:flex;gap:16px;flex-wrap:wrap}
+  .bcard-link{font-family:'Inter';font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+  .bcard-link:hover{color:var(--navy)}
+  .bcard-li svg{width:15px;height:15px;fill:currentColor}
+  @media(max-width:640px){
+    .bcard-inner{grid-template-columns:1fr}
+    .bcard-logo-wrap{display:none}
+    .bcard-trigger{padding:16px 18px;gap:14px}
+    .bcard-body.open{max-height:500px}
+    .bcard-inner{padding:0 18px 20px}
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+
+  /* Tablet: 768px */
+  @media(max-width:900px){
+    /* nav */
+    .nav-mid{display:none}
+    .logos img.lg-img{height:32px}
+
+    /* hero */
+    .hero-left{padding:60px 0 50px}
+    .hero-cta{flex-wrap:wrap;justify-content:center}
+    .hero-cta .btn{font-size:11px;padding:13px 20px}
+
+    /* participate */
+    .pbenefits{grid-template-columns:1fr}
+
+    /* stats */
+    .stats-in{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){border-left:none}
+    .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--line)}
+
+    /* stake */
+    .stake-grid{grid-template-columns:1fr 1fr}
+
+    /* metrics */
+    .metrics{grid-template-columns:1fr 1fr}
+    .metric:nth-child(odd){border-left:none}
+    .metric:nth-child(n+3){border-top:1px solid var(--line)}
+
+    /* tournament */
+    .tournament-grid{grid-template-columns:1fr}
+
+    /* proof logos */
+    .proof-logos{gap:24px}
+    .proof-logos img{height:36px}
+  }
+
+  /* Mobile: 640px */
+  @media(max-width:640px){
+    .wrap{padding:0 18px}
+
+    /* nav */
+    .nav-in{height:64px}
+    .logos img.lg-img{height:26px}
+    .logos{gap:14px}
+
+    /* hero */
+    .hero-left{padding:48px 0 44px;align-items:center;text-align:center}
+    .hero-left .eyebrow{justify-content:center}
+    .hero-word .l{font-size:clamp(52px,15vw,80px)}
+    .hero-cta{flex-direction:column;align-items:stretch;gap:10px}
+    .hero-cta .btn{width:100%;justify-content:center;font-size:12px;padding:15px 20px}
+
+    /* participate */
+    .ptabs{flex-direction:row;justify-content:center}
+    .ptab{padding:10px 18px;font-size:11px}
+    .ppanel .ph{font-size:clamp(22px,6vw,34px)}
+    .pbenefits{grid-template-columns:1fr;gap:10px 0}
+
+    /* stats */
+    .stats-in{grid-template-columns:1fr 1fr}
+    .stat{padding:22px 12px;gap:10px}
+    .stat .n{font-size:32px}
+
+    /* stake */
+    .stake{padding:52px 0}
+    .stake-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .stake-item{padding:20px 12px}
+    .stake-item span{font-size:15px}
+
+    /* tournament */
+    .tournament-section{padding:52px 0}
+    .tournament-grid{grid-template-columns:1fr;gap:20px}
+    .tournament-card{padding:24px 20px}
+    .bracket-svg{min-width:420px}
+
+    /* sponsor metrics */
+    .metrics{grid-template-columns:1fr 1fr}
+    .metric:nth-child(odd){border-left:none}
+    .metric:nth-child(n+3){border-top:1px solid var(--line)}
+    .metric .mn{font-size:32px}
+    .sponsor{padding:60px 0}
+
+    /* volunteers */
+    .vol{padding:60px 0}
+    .vol-chips{gap:8px}
+    .vol-chip{font-size:12px;padding:10px 16px}
+
+    /* proof */
+    .proof{padding:60px 0}
+    .proof-logos{gap:20px}
+    .proof-logos img{height:28px}
+
+    /* cta */
+    .cta{padding:64px 0 56px}
+    .cta h2{font-size:clamp(32px,9vw,56px)}
+
+    /* footer */
+    .foot{flex-direction:column;align-items:center;text-align:center;gap:16px}
+    .logos.foot-logos{flex-wrap:wrap;justify-content:center}
+
+    /* quad cells */
+    .cell{padding:36px 20px}
+  }
+
+  /* Small mobile: 400px */
+  @media(max-width:400px){
+    .stake-grid{grid-template-columns:1fr}
+    .metrics{grid-template-columns:1fr}
+    .metric{border-left:none!important;border-top:1px solid var(--line)}
+    .metric:first-child{border-top:none}
+  }
+
   /* tournament section */
   .tournament-section{background:var(--navy);padding:72px 0;border-bottom:1px solid rgba(255,255,255,.08)}
   .tournament-header{text-align:center;margin-bottom:48px}
@@ -353,7 +496,7 @@
       <div class="ph">Win more than a trophy</div>
       <p class="psub">The champion walks away with new investors, new customers, new champions, and a far larger platform.</p>
       <div class="pbenefits">
-        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Pitch in front of 200+ investors, operators, and ecosystem leaders across competition</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Pitch in front of 40+ investors, operators, and ecosystem leaders across competition</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Gain visibility across the DMV's largest innovation communities</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Coaching and feedback from active angels and VCs</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Build relationships with customers, advisors, and partners</div>
@@ -380,27 +523,21 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats"><div class="wrap"><div class="stats-in">
-  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">36</div><div class="t">Startups</div></div></div>
-  <div class="stat"><svg><use href="#ic-pins"/></svg><div><div class="n">3</div><div class="t">Regions</div></div></div>
-  <div class="stat"><svg><use href="#ic-trophy"/></svg><div><div class="n">1</div><div class="t">Champion</div></div></div>
-  <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">100+</div><div class="t">Investors Expected</div></div></div>
-</div></div></div>
-
 <!-- SPONSORS -->
 <section class="sponsor" id="sponsors">
   <div class="wrap center">
     <span class="eyebrow label gold-clr">Partners &amp; Sponsors</span>
     <h2 class="sec-h" style="font-size:clamp(34px,5vw,58px);margin-top:14px">Why sponsors back the championship</h2>
     <p class="sponsor-copy">Reach the region's most ambitious founders, investors, students, and operators. Support non-dilutive capital for startups. Build relationships with the next generation of companies shaping the DMV.</p>
-    <div class="metrics">
-      <div class="metric"><div class="mn">36</div><div class="ml">Startups</div></div>
-      <div class="metric"><div class="mn">40+</div><div class="ml">Investors &amp; Judges</div></div>
-      <div class="metric"><div class="mn">500+</div><div class="ml">Community Members</div></div>
-      <div class="metric"><div class="mn">3</div><div class="ml">Regions</div></div>
-      <div class="metric"><div class="mn">1</div><div class="ml">Championship</div></div>
-    </div>
+
+    <!-- STATS -->
+    <div class="stats" style="margin:40px -28px 0;border-top:1px solid var(--line)"><div class="wrap"><div class="stats-in">
+      <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">36</div><div class="t">Startups</div></div></div>
+      <div class="stat"><svg><use href="#ic-pins"/></svg><div><div class="n">3</div><div class="t">Regions</div></div></div>
+      <div class="stat"><svg><use href="#ic-trophy"/></svg><div><div class="n">1</div><div class="t">Champion</div></div></div>
+      <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">40+</div><div class="t">Investors Expected</div></div></div>
+    </div></div></div>
+
     <div class="pcta" style="margin-top:42px"><a href="#" class="btn btn-gold">Partner With Us</a></div>
   </div>
 </section>
@@ -475,23 +612,111 @@
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="proof">
+<!-- BUILDERS -->
+<section class="builders">
   <div class="wrap">
-    <div class="pl">Built By</div>
-    <img class="built-logo blend" src="da-logo.png" alt="District Angels">
-    <div class="ip">Co-Produced With</div>
-    <div class="proof-logos">
-      <img class="blend" src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week">
-      <img class="blend" src="ia-logo.jpeg" alt="Inspire Access">
-      <img class="blend" src="abell-logo.jpg" alt="Abell Foundation">
+    <div class="builders-head">
+      <span class="label gold-clr" style="letter-spacing:.24em">The Team Behind It</span>
+      <h2 class="sec-h" style="font-size:clamp(28px,3.5vw,44px);margin-top:10px">Built &amp; Co-Produced By</h2>
+      <p class="builders-sub">Click any logo to learn more about the organizations powering Battle of the Regions.</p>
     </div>
-    <div class="proof-cats">
-      <span class="proof-cat">Universities</span>
-      <span class="proof-cat">Accelerators</span>
-      <span class="proof-cat">VC Firms</span>
-      <span class="proof-cat">Coworking Spaces</span>
+
+    <!-- District Angels -->
+    <div class="bcard" id="bc-da">
+      <button class="bcard-trigger" onclick="toggleBuilder('bc-da')" aria-expanded="false">
+        <img src="da-logo.png" alt="District Angels" class="bcard-logo blend">
+        <span class="bcard-name">District Angels</span>
+        <span class="bcard-chevron">﹀</span>
+      </button>
+      <div class="bcard-body">
+        <div class="bcard-inner">
+          <div class="bcard-logo-wrap"><img src="da-logo.png" alt="District Angels" class="bcard-inner-logo blend"></div>
+          <div class="bcard-content">
+            <p class="bcard-bio">District Angels is a DMV-affiliated angel investing collective dedicated to making DC, MD, and VA a powerhouse of innovation through Education, Shared Infrastructure, and Community. Through our Fellowship Academy, Monthly Deal Rooms, and Investor Activation Series, we connect emerging and experienced angels to curated deal flow and live investment opportunities — keeping participation accessible and inclusive across the region.</p>
+            <div class="bcard-links">
+              <a href="https://www.districtangels.com/" target="_blank" rel="noopener" class="bcard-link">Visit Website →</a>
+              <a href="https://www.linkedin.com/company/district-angels" target="_blank" rel="noopener" class="bcard-link bcard-li">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- DC Startup & Tech Week -->
+    <div class="bcard" id="bc-dcstw">
+      <button class="bcard-trigger" onclick="toggleBuilder('bc-dcstw')" aria-expanded="false">
+        <img src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week" class="bcard-logo blend">
+        <span class="bcard-name">DC Startup &amp; Tech Week</span>
+        <span class="bcard-chevron">﹀</span>
+      </button>
+      <div class="bcard-body">
+        <div class="bcard-inner">
+          <div class="bcard-logo-wrap"><img src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week" class="bcard-inner-logo blend"></div>
+          <div class="bcard-content">
+            <p class="bcard-bio">Now in its eleventh year, DC Startup &amp; Tech Week is the DMV's premier entrepreneurship platform, surfacing world-class founders and connecting them with the capital and community they need to scale. DCSTW unites over 17,000 entrepreneurs, investors, and industry leaders annually — and through Battle of the Regions, provides a stage for 36 of the region's most promising Seed and Series A companies to compete for the championship title.</p>
+            <div class="bcard-links">
+              <a href="https://www.dcstw.com/" target="_blank" rel="noopener" class="bcard-link">Visit Website →</a>
+              <a href="https://www.linkedin.com/company/dcstartupweek/" target="_blank" rel="noopener" class="bcard-link bcard-li">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inspire Access -->
+    <div class="bcard" id="bc-ia">
+      <button class="bcard-trigger" onclick="toggleBuilder('bc-ia')" aria-expanded="false">
+        <img src="ia-logo.jpeg" alt="Inspire Access" class="bcard-logo blend">
+        <span class="bcard-name">Inspire Access</span>
+        <span class="bcard-chevron">﹀</span>
+      </button>
+      <div class="bcard-body">
+        <div class="bcard-inner">
+          <div class="bcard-logo-wrap"><img src="ia-logo.jpeg" alt="Inspire Access" class="bcard-inner-logo blend"></div>
+          <div class="bcard-content">
+            <p class="bcard-bio">Inspire Access mobilizes philanthropic capital toward high-performing companies and investment funds led by underrepresented founders, or those that support underrepresented communities. Their vehicle enables donors to activate idle charitable capital and generate returns that fuel additional giving and greater impact — handled swiftly and seamlessly, with minimal fees.</p>
+            <div class="bcard-links">
+              <a href="https://www.inspireaccess.org/" target="_blank" rel="noopener" class="bcard-link">Visit Website →</a>
+              <a href="https://www.linkedin.com/company/inspire-access-inc/" target="_blank" rel="noopener" class="bcard-link bcard-li">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Abell Foundation -->
+    <div class="bcard" id="bc-abell">
+      <button class="bcard-trigger" onclick="toggleBuilder('bc-abell')" aria-expanded="false">
+        <img src="abell-logo.jpg" alt="Abell Foundation" class="bcard-logo">
+        <span class="bcard-name">Abell Foundation</span>
+        <span class="bcard-chevron">﹀</span>
+      </button>
+      <div class="bcard-body">
+        <div class="bcard-inner">
+          <div class="bcard-logo-wrap"><img src="abell-logo.jpg" alt="Abell Foundation" class="bcard-inner-logo"></div>
+          <div class="bcard-content">
+            <p class="bcard-bio">The Abell Foundation is a Baltimore-based philanthropic organization dedicated to improving health, economic, and educational outcomes so that all people can thrive. Through grants, research, and catalytic investments, Abell supports innovative solutions across education, workforce development, community development, and more — with a focus on addressing structural inequity across the region.</p>
+            <div class="bcard-links">
+              <a href="https://abell.org/" target="_blank" rel="noopener" class="bcard-link">Visit Website →</a>
+              <a href="https://www.linkedin.com/company/abell-foundation-inc/" target="_blank" rel="noopener" class="bcard-link bcard-li">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -521,6 +746,13 @@
 </div>
 
 <script>
+  function toggleBuilder(id){
+    const card=document.getElementById(id);
+    const isOpen=card.classList.contains('open');
+    document.querySelectorAll('.bcard').forEach(c=>{c.classList.remove('open');c.querySelector('.bcard-trigger').setAttribute('aria-expanded','false')});
+    if(!isOpen){card.classList.add('open');card.querySelector('.bcard-trigger').setAttribute('aria-expanded','true')}
+  }
+
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
