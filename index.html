@@ -223,10 +223,74 @@
   .ppanel .ph{font-family:'Playfair Display';font-weight:700;font-size:clamp(28px,3.6vw,44px);color:var(--navy);text-align:center;line-height:1.06}
   .ppanel .psub{text-align:center;color:#3c4757;margin:16px auto 0;max-width:50ch;font-size:16px}
   .pbenefits{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin:36px auto 0;max-width:780px}
-  .pbenefit{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#3c4757}
+  .pbenefits-left{text-align:left}
+  .pbenefit{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#3c4757;text-align:left}
   .pbenefit svg{width:20px;height:20px;flex:none;stroke:var(--gold);fill:none;stroke-width:2.2;margin-top:3px}
   .pcta{text-align:center;margin-top:34px}
   @media(max-width:680px){.pbenefits{grid-template-columns:1fr}}
+
+  /* sponsor expanded */
+  .sp-block{margin-top:0}
+  .sp-block-header{background:rgba(16,35,64,.06);color:var(--mute);font-family:'Inter';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:11px 40px;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sp-block-subheader{background:rgba(16,35,64,.06);color:var(--navy);font-family:'Inter';font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:14px 0;margin-top:32px;border-top:1px solid var(--line);text-align:left}
+  .sp-goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line);margin-top:0}
+  .sp-goal{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream);text-align:left}
+  .sp-goal-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold);opacity:.55;line-height:1;display:block;margin-bottom:12px}
+  .sp-goal p{font-size:14px;line-height:1.7;color:#3c4757;margin:0}
+  .sp-tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+  .sp-tier{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream);text-align:left;display:flex;flex-direction:column;gap:0}
+  .sp-tier-featured{background:#2c4a7c}
+  .sp-tier-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .sp-tier-badge{font-family:'Inter';font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:3px 10px;border-radius:3px}
+  .sp-tier-badge.bronze{background:rgba(184,151,46,.15);color:#8a6d1a;border:1px solid rgba(184,151,46,.3)}
+  .sp-tier-badge.gold{background:var(--gold);color:#fff}
+  .sp-tier-badge.platinum{background:var(--navy);color:var(--gold-2);border:1px solid var(--gold)}
+  .sp-tier-featured .sp-tier-badge.gold{background:var(--gold-2);color:var(--navy)}
+  .sp-tier-avail{font-size:11px;color:var(--mute);font-family:'Inter'}
+  .sp-tier-featured .sp-tier-avail{color:rgba(255,255,255,.5)}
+  .sp-tier-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.2}
+  .sp-tier-featured .sp-tier-name{color:#fff}
+  .sp-tier-section{font-family:'Inter';font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:18px 0 10px}
+  .sp-tier-featured .sp-tier-section{color:var(--gold-2)}
+  .sp-tier-list{margin:0;padding:0 0 0 0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .sp-tier-list li{font-size:13px;line-height:1.5;color:#3c4757;padding-left:16px;position:relative}
+  .sp-tier-list li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-size:11px;top:1px}
+  .sp-tier-featured .sp-tier-list li{color:rgba(255,255,255,.75)}
+  .sp-tier-featured .sp-tier-list li::before{color:var(--gold-2)}
+  .sp-alacarte-intro{font-size:15px;line-height:1.7;color:#3c4757;text-align:left;max-width:100%;padding:24px 0 8px;margin:0}
+  .sp-alacarte-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line);margin-top:16px}
+  .sp-alacarte-item{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream);text-align:left}
+  .sp-alacarte-label{font-family:'Inter';font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .sp-alacarte-title{font-size:17px;font-weight:700;color:var(--navy);font-family:'Playfair Display',serif;margin-bottom:10px}
+  .sp-alacarte-item p{font-size:13px;line-height:1.65;color:#3c4757;margin:10px 0 14px}
+  .sp-region-chips{display:flex;gap:6px;margin-bottom:12px}
+  .sp-chip{font-family:'Inter';font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:3px;color:#fff}
+  .sp-chip.dc{background:var(--dc)}
+  .sp-chip.md{background:var(--md)}
+  .sp-chip.va{background:var(--va)}
+  .sp-pik{display:inline-block;font-family:'Inter';font-size:11px;font-weight:600;color:var(--gold);border:1px solid rgba(184,151,46,.4);padding:4px 12px;border-radius:4px}
+  .sp-more-note{font-size:13px;color:var(--mute);font-style:italic;text-align:center;margin:24px auto 0;max-width:560px;line-height:1.6}
+  /* goal accordion cards */
+  .sp-gcards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;padding:40px 0 24px}
+  .sp-gcard{background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(16,35,64,.09);overflow:hidden;transition:box-shadow .2s}
+  .sp-gcard:hover{box-shadow:0 6px 24px rgba(16,35,64,.14)}
+  .sp-gcard.faded{opacity:.35;filter:grayscale(.3);transform:scale(.98)}
+  .sp-gcard.open{box-shadow:0 8px 28px rgba(16,35,64,.16);border:1px solid rgba(184,151,46,.3)}
+  .sp-gcards{transition:all .2s}
+  .sp-gcard{transition:box-shadow .2s,opacity .25s ease,transform .25s ease,filter .25s ease}
+  .sp-gcard-trigger{width:100%;background:none;border:none;padding:20px 22px;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left}
+  .sp-gcard-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);opacity:.7;flex:none;line-height:1}
+  .sp-gcard-title{font-family:'Inter';font-size:13px;font-weight:600;color:var(--navy);flex:1;line-height:1.3}
+  .sp-gcard-chev{font-size:12px;color:var(--gold);flex:none;transition:transform .3s ease;display:inline-block}
+  .sp-gcard.open .sp-gcard-chev{transform:rotate(180deg)}
+  .sp-gcard-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.16,1,.3,1)}
+  .sp-gcard.open .sp-gcard-body{max-height:200px}
+  .sp-gcard-inner{padding:0 22px 20px;font-size:13px;line-height:1.7;color:#4a5568;border-top:1px solid var(--line)}
+  .sp-gcard-inner{padding-top:14px}
+  @media(max-width:760px){.sp-gcards{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.sp-gcards{grid-template-columns:1fr}}
+  @media(max-width:760px){.sp-goals-grid,.sp-tiers-grid{grid-template-columns:1fr 1fr}.sp-alacarte-grid{grid-template-columns:1fr}}
+  @media(max-width:480px){.sp-goals-grid,.sp-tiers-grid{grid-template-columns:1fr}.sp-block-header{padding:12px 20px}}
 
   /* WHAT'S AT STAKE band */
   .stake{background:var(--navy);color:var(--cream);padding:80px 0;border-top:4px solid var(--gold)}
@@ -456,7 +520,7 @@
   }
 
   /* live stats teaser */
-  .live-stats-teaser{background:var(--navy);padding:40px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .live-stats-teaser{background:var(--navy);padding:40px 0 52px;border-top:1px solid rgba(255,255,255,.06)}
   .lst-inner{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:center}
   .lst-pulse{width:14px;height:14px;flex:none;position:relative;display:flex;align-items:center;justify-content:center}
   .lst-pulse span{width:10px;height:10px;border-radius:50%;background:var(--gold);display:block;position:relative}
@@ -464,7 +528,15 @@
   @keyframes pulse-ring{0%{transform:scale(.7);opacity:.6}100%{transform:scale(1.8);opacity:0}}
   .lst-label{font-family:'Inter';font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);margin:0}
   .lst-sub{font-size:16px;color:rgba(255,255,255,.55);margin:4px 0 0;font-style:italic}
-  @media(max-width:640px){.live-stats-teaser{padding:32px 0}.lst-label{font-size:12px}.lst-sub{font-size:14px}}
+  .lst-tables{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;padding-bottom:16px}
+  .lst-table-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(220,205,172,.15);border-radius:8px;overflow:hidden}
+  .lst-table-title{font-family:'Inter';font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);padding:12px 16px;border-bottom:1px solid rgba(220,205,172,.12)}
+  .lst-table{width:100%;border-collapse:collapse}
+  .lst-table th{font-family:'Inter';font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);padding:10px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+  .lst-table td{font-size:13px;color:rgba(255,255,255,.6);padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .lst-table tbody tr:last-child td{border-bottom:none}
+  .lst-table .lst-total td{color:rgba(255,255,255,.85);font-weight:600;border-top:1px solid rgba(220,205,172,.2);background:rgba(255,255,255,.04)}
+  @media(max-width:640px){.live-stats-teaser{padding:32px 0}.lst-label{font-size:12px}.lst-sub{font-size:14px}.lst-tables{grid-template-columns:1fr}}
 
   /* vertical timeline */
   .vstep{display:flex;gap:18px;align-items:flex-start}
@@ -543,9 +615,9 @@
     <p class="hero-sub">Three regions. The DMV's most promising startups. <em>One champion.</em></p>
     <div class="hero-cta">
       <a href="https://airtable.com/appHwbVAsqZ2Tu4YA/shr1Xa9qVoevGpQPy" class="btn btn-navy">Apply to Compete</a>
-      <a href="https://tally.so/r/2Eodpp" class="btn btn-out">Become a Judge</a>
-      <a href="#sponsors" class="btn btn-gold">Partner With Us</a>
-      <a href="#" class="btn btn-red">Join the Organizing Team</a>
+      <a href="https://tally.so/r/jaggY9" class="btn btn-out">Become a Judge</a>
+      <a href="https://tally.so/r/jaggY9" class="btn btn-gold">Partner With Us</a>
+      <a href="https://tally.so/r/jaggY9" class="btn btn-red">Join the Organizing Team</a>
     </div>
   </div>
   <div class="hero-right">
@@ -565,7 +637,7 @@
       </div>
       <h2 class="about-blurb-title">Where the DMV's<br><em>Best Compete.</em></h2>
       <div class="about-blurb-rule"></div>
-      <p class="about-blurb-text">The Battle of the Regions brings together the brightest startups from D.C., Maryland, and Virginia in a <strong>high-stakes, single-elimination pitch competition</strong> designed to crown the DMV's top entrepreneurial talent. Competing for capital, visibility, and the title of regional champion, founders will go head-to-head until <strong>only one startup emerges victorious.</strong></p>
+      <p class="about-blurb-text">The Battle of the Regions brings together the brightest startups from D.C., Maryland, and Virginia in a <strong>high-stakes, single-elimination pitch competition</strong> designed to crown the DMV's top entrepreneurial talent. Competing for capital, visibility, and the title of regional champion, founders will go head-to-head until <strong>10 founders compete on the DCSTW stage where only one startup emerges victorious.</strong></p>
     </div>
   </div>
 </section>
@@ -583,12 +655,14 @@
     <div class="ppanel on" id="p-founders">
       <div class="ph">Win more than a trophy</div>
       <p class="psub">The champion walks away with new investors, new customers, new champions, and a far larger platform.</p>
-      <div class="pbenefits">
+      <div class="pbenefits pbenefits-left">
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Pitch in front of 40+ investors, operators, and ecosystem leaders across competition</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Gain visibility across the DMV's largest innovation communities</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Coaching and feedback from active angels and VCs</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Build relationships with customers, advisors, and partners</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Compete for non-dilutive capital</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Press coverage across DMV tech and startup media</div>
+        <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Strategic introductions to investors, operators, and ecosystem leaders</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Earn the title of DMV Champion</div>
       </div>
       <div class="pcta"><a href="https://airtable.com/appHwbVAsqZ2Tu4YA/shr1Xa9qVoevGpQPy" class="btn btn-navy">Apply to Compete</a></div>
@@ -597,7 +671,7 @@
     <div class="ppanel" id="p-investors">
       <div class="ph">See the DMV's most promising startups first</div>
       <p class="psub">Judge the rounds and get curated access to founders before fundraising accelerates.</p>
-      <div class="pbenefits">
+      <div class="pbenefits pbenefits-left">
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Curated access to top founders across DC, Maryland, and Virginia</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Evaluate companies alongside experienced angels and VCs</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Sit on the regional judging panels</div>
@@ -605,7 +679,7 @@
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Privileged deal flow through the District Angels network</div>
         <div class="pbenefit"><svg viewBox="0 0 24 24"><use href="#ic-check"/></svg>Help crown the next DMV champion</div>
       </div>
-      <div class="pcta"><a href="https://tally.so/r/2Eodpp" class="btn btn-navy">Become a Judge</a></div>
+      <div class="pcta"><a href="https://tally.so/r/jaggY9" class="btn btn-navy">Become a Judge</a></div>
     </div>
 
   </div>
@@ -616,41 +690,126 @@
   <div class="wrap center">
     <span class="eyebrow label gold-clr">Partners &amp; Sponsors</span>
     <h2 class="sec-h" style="font-size:clamp(34px,5vw,58px);margin-top:14px">Why sponsors back the championship</h2>
-    <p class="sponsor-copy">Reach the region's most ambitious founders, investors, students, and operators. Support non-dilutive capital for startups. Build relationships with the next generation of companies shaping the DMV.</p>
+  </div>
 
-    <!-- STATS -->
-    <div class="stats" style="margin:40px -28px 0;border-top:1px solid var(--line)"><div class="wrap"><div class="stats-in">
-      <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">36</div><div class="t">Startups</div></div></div>
-      <div class="stat"><svg><use href="#ic-pins"/></svg><div><div class="n">3</div><div class="t">Regions</div></div></div>
-      <div class="stat"><svg><use href="#ic-trophy"/></svg><div><div class="n">1</div><div class="t">Champion</div></div></div>
-      <div class="stat"><svg><use href="#ic-users"/></svg><div><div class="n">40+</div><div class="t">Investors Expected</div></div></div>
-    </div></div></div>
+  <!-- WHY PARTNER GOALS -->
+  <div class="wrap">
+    <div class="sp-gcards rv">
 
-    <!-- Partner logos -->
-    <div style="margin-top:48px;border-top:1px solid var(--line);padding-top:36px">
+      <div class="sp-gcard" id="sg-01">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-01')" aria-expanded="false">
+          <span class="sp-gcard-num">01</span>
+          <span class="sp-gcard-title">Non-Dilutive Capital for Founders</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Provide non-dilutive capital to Seed and Series A startups across DC, Maryland, and Virginia — directly funding the region's most promising companies.</div></div>
+      </div>
+
+      <div class="sp-gcard" id="sg-02">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-02')" aria-expanded="false">
+          <span class="sp-gcard-num">02</span>
+          <span class="sp-gcard-title">Founder Access &amp; Resources</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Connect founders with capital, mentorship, and resources from a curated regional network of angels, VCs, and LPs.</div></div>
+      </div>
+
+      <div class="sp-gcard" id="sg-03">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-03')" aria-expanded="false">
+          <span class="sp-gcard-num">03</span>
+          <span class="sp-gcard-title">Ecosystem Visibility</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Increase visibility for active angels, institutional VCs, and ecosystem organizations operating across the DMV.</div></div>
+      </div>
+
+      <div class="sp-gcard" id="sg-04">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-04')" aria-expanded="false">
+          <span class="sp-gcard-num">04</span>
+          <span class="sp-gcard-title">Regional Investor Collaboration</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Build cross-border investor collaboration across DC, Maryland, and Virginia — reinforcing regional cohesion.</div></div>
+      </div>
+
+      <div class="sp-gcard" id="sg-05">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-05')" aria-expanded="false">
+          <span class="sp-gcard-num">05</span>
+          <span class="sp-gcard-title">Co-Investment Opportunities</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Create syndication, co-investment, and deal flow opportunities among diverse investor groups that are thesis- and stage-aligned.</div></div>
+      </div>
+
+      <div class="sp-gcard" id="sg-06">
+        <button class="sp-gcard-trigger" onclick="toggleGoal('sg-06')" aria-expanded="false">
+          <span class="sp-gcard-num">06</span>
+          <span class="sp-gcard-title">Community Impact</span>
+          <span class="sp-gcard-chev">﹀</span>
+        </button>
+        <div class="sp-gcard-body"><div class="sp-gcard-inner">Inspire university students and young professionals to build, join, and scale high-growth companies in the DMV ecosystem.</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PITCH LINE -->
+  <div class="wrap center" style="padding-bottom:52px">
+    <p style="font-size:14px;line-height:1.75;color:var(--mute);max-width:640px;margin:0 auto;text-align:center">Your sponsorship doesn't just put your logo on a stage. It directly funds non-dilutive capital into the hands of DMV founders who've earned it — and puts you in the room with 40 angels, VCs, and LPs and 36 of the region's most promising companies.</p>
+  </div>
+
+  <!-- SPONSORSHIP TIERS -->
+  <div class="sp-block">
+    <div class="sp-block-header">Sponsorship Tiers</div>
+    <div class="wrap">
+      <div class="sp-tiers-grid rv">
+
+        <div class="sp-tier">
+          <div class="sp-tier-meta"><span class="sp-tier-badge bronze">Bronze</span><span class="sp-tier-avail">Unlimited Spots</span></div>
+          <div class="sp-tier-name">Regional Supporter</div>
+          <ul class="sp-tier-list">
+            <li>Brand visibility across event materials and social media</li>
+            <li>Logo on registration pages and programming slides</li>
+            <li>3 reserved seats at your designated regional event</li>
+          </ul>
+        </div>
+
+        <div class="sp-tier sp-tier-featured">
+          <div class="sp-tier-meta"><span class="sp-tier-badge gold">Gold</span><span class="sp-tier-avail">5 Spots Available</span></div>
+          <div class="sp-tier-name">Capital Partner</div>
+          <ul class="sp-tier-list">
+            <li>Named association with a Regional Capital Prize</li>
+            <li>Access to deal flow and co-investment opportunities</li>
+            <li>5 reserved seats + speaking opportunity at a regional event</li>
+            <li>Featured placement in post-event investor communications</li>
+          </ul>
+        </div>
+
+        <div class="sp-tier">
+          <div class="sp-tier-meta"><span class="sp-tier-badge platinum">Platinum</span><span class="sp-tier-avail">2 Spots Available</span></div>
+          <div class="sp-tier-name">Championship Sponsor</div>
+          <ul class="sp-tier-list">
+            <li>Named title sponsor of the Tournament Championship prize</li>
+            <li>Logo in event title and all tournament branding</li>
+            <li>Priority deal flow access + co-investment rights</li>
+            <li>8 seats + keynote at the Championship final</li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="sp-more-note rv">Additional à la carte opportunities available — including Regional Capital Prize Contributor, Venue Host, and Recognition Award sponsorships.</p>
+    </div>
+  </div>
+
+  <!-- Partner logos + CTA -->
+  <div class="wrap center" style="padding:52px 0 36px">
+    <div style="border-top:1px solid var(--line);padding-top:36px">
       <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:28px">Partners who have backed the future champion</p>
       <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:center">
         <img src="aed-logo.png" alt="Arlington Economic Development" style="height:64px;opacity:.9">
       </div>
     </div>
-
-    <div class="pcta" style="margin-top:42px"><a href="#" class="btn btn-gold">Partner With Us</a></div>
-  </div>
-</section>
-
-<!-- WHAT'S AT STAKE -->
-<section class="stake">
-  <div class="wrap">
-    <div class="sh">For the Winner</div>
-    <div class="stake-title">What's at Stake</div>
-    <div class="stake-grid">
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-users"/></svg><span>Investor Visibility</span></div>
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-pins"/></svg><span>Regional Recognition</span></div>
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-trophy"/></svg><span>Non-Dilutive Capital</span></div>
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><span>Press Coverage</span></div>
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-hands"/></svg><span>Strategic Introductions</span></div>
-      <div class="stake-item"><svg viewBox="0 0 24 24"><use href="#ic-trophy"/></svg><span>The Championship Title</span></div>
-    </div>
+    <div class="pcta" style="margin-top:42px"><a href="https://tally.so/r/jaggY9" class="btn btn-gold">Partner With Us</a></div>
   </div>
 </section>
 
@@ -723,11 +882,57 @@
 
 <!-- LIVE STATS TEASER -->
 <section class="live-stats-teaser">
-  <div class="wrap lst-inner rv">
-    <div class="lst-pulse"><span></span></div>
-    <div class="lst-text">
-      <p class="lst-label">Live Tournament Stats</p>
-      <p class="lst-sub">Will be shared here — stay tuned.</p>
+  <div class="wrap">
+    <div class="lst-inner rv">
+      <div class="lst-pulse"><span></span></div>
+      <div class="lst-text">
+        <p class="lst-label">Live Tournament Stats</p>
+        <p class="lst-sub">Will be shared here — stay tuned.</p>
+      </div>
+    </div>
+
+    <div class="lst-tables rv">
+
+      <!-- Founder Table -->
+      <div class="lst-table-wrap">
+        <div class="lst-table-title">Founder Stats</div>
+        <table class="lst-table">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Companies</th>
+              <th>Amount Raised</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Maryland</td><td>—</td><td>—</td></tr>
+            <tr><td>Washington DC</td><td>—</td><td>—</td></tr>
+            <tr><td>Virginia</td><td>—</td><td>—</td></tr>
+            <tr class="lst-total"><td>Total</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Investor Table -->
+      <div class="lst-table-wrap">
+        <div class="lst-table-title">Investor Stats</div>
+        <table class="lst-table">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Investors</th>
+              <th>Deals Evaluated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Maryland</td><td>—</td><td>—</td></tr>
+            <tr><td>Washington DC</td><td>—</td><td>—</td></tr>
+            <tr><td>Virginia</td><td>—</td><td>—</td></tr>
+            <tr class="lst-total"><td>Total</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </section>
@@ -747,7 +952,7 @@
       <span class="vol-chip">Investor Relations</span>
       <span class="vol-chip">Event Production</span>
     </div>
-    <div class="pcta"><a href="#" class="btn btn-out">Join the Organizing Team</a></div>
+    <div class="pcta"><a href="https://tally.so/r/jaggY9" class="btn btn-out">Join the Organizing Team</a></div>
   </div>
 </section>
 
@@ -898,6 +1103,19 @@
 </div>
 
 <script>
+  function toggleGoal(id){
+    const card=document.getElementById(id);
+    const isOpen=card.classList.contains('open');
+    const allCards=document.querySelectorAll('.sp-gcard');
+    // close all first
+    allCards.forEach(c=>{c.classList.remove('open','faded');c.querySelector('.sp-gcard-trigger').setAttribute('aria-expanded','false')});
+    if(!isOpen){
+      card.classList.add('open');
+      card.querySelector('.sp-gcard-trigger').setAttribute('aria-expanded','true');
+      allCards.forEach(c=>{if(c!==card) c.classList.add('faded')});
+    }
+  }
+
   function toggleBuilder(id){
     const card=document.getElementById(id);
     const isOpen=card.classList.contains('open');
