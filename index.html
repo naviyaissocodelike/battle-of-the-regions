@@ -50,9 +50,34 @@
   .page{position:relative;z-index:1}
 
   /* NAV */
-  nav{background:var(--cream);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px}
-  .logos{display:flex;align-items:center;gap:26px}
+  nav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+  .logos{display:flex;align-items:center;gap:20px}
+  .nav-btns{display:flex;gap:8px;align-items:center;flex-shrink:0}
+  /* hamburger */
+  .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+  .nav-burger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-burger.open span:nth-child(2){opacity:0}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  /* mobile drawer */
+  .nav-drawer{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--line);padding:20px 24px 28px;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .nav-drawer.open{display:flex}
+  .nav-drawer a{display:block;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);opacity:.8;padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-drawer a:last-of-type{border-bottom:none}
+  .nav-drawer-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  @media(max-width:900px){
+    .nav-mid{display:none}
+    .nav-btns .btn:nth-child(2){display:none}
+  }
+  @media(max-width:640px){
+    .nav-in{height:60px}
+    .lg-img{height:32px}
+    .logos{gap:12px}
+    .nav-burger{display:flex}
+    .nav-btns{display:none}
+    .logos .lg-img:nth-child(n+3){display:none}
+  }
   .logo{display:flex;align-items:center;gap:9px}
   .logo .lt{font-family:'Inter';font-weight:800;font-size:11px;letter-spacing:.06em;line-height:1.05;text-transform:uppercase;color:var(--navy)}
   .logo .lt span{display:block;font-weight:500;color:var(--gold);font-size:9.5px;letter-spacing:.14em}
@@ -605,11 +630,27 @@
   <div class="nav-mid">
     <a href="#about">About</a><a href="#tournament">Tournament</a><a href="#participate" data-panel="founders">Founders</a><a href="#participate" data-panel="investors">Investors</a><a href="#sponsors">Partners</a><a href="#volunteers">Volunteers</a>
   </div>
-  <div style="display:flex;gap:8px;align-items:center">
+  <div class="nav-btns">
     <a href="https://airtable.com/appHwbVAsqZ2Tu4YA/shr1Xa9qVoevGpQPy" target="_blank" rel="noopener" class="btn btn-gold">Apply Now</a>
     <a href="http://linkedin.com/showcase/battle-of-the-regions/?viewAsMember=true" target="_blank" rel="noopener" class="btn btn-red">Follow Us</a>
   </div>
-</div></nav>
+  <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="#about" onclick="toggleNav()">About</a>
+  <a href="#tournament" onclick="toggleNav()">Tournament</a>
+  <a href="#participate" onclick="toggleNav()">Founders</a>
+  <a href="#participate" onclick="toggleNav()">Investors</a>
+  <a href="#sponsors" onclick="toggleNav()">Partners</a>
+  <a href="#volunteers" onclick="toggleNav()">Volunteers</a>
+  <div class="nav-drawer-btns">
+    <a href="https://airtable.com/appHwbVAsqZ2Tu4YA/shr1Xa9qVoevGpQPy" target="_blank" rel="noopener" class="btn btn-gold">Apply Now</a>
+    <a href="http://linkedin.com/showcase/battle-of-the-regions/?viewAsMember=true" target="_blank" rel="noopener" class="btn btn-red">Follow Us</a>
+  </div>
+</div>
+</nav>
 
 <!-- HERO -->
 <header class="hero" id="about">
@@ -1112,6 +1153,13 @@
 </div>
 
 <script>
+  function toggleNav(){
+    const burger=document.getElementById('navBurger');
+    const drawer=document.getElementById('navDrawer');
+    burger.classList.toggle('open');
+    drawer.classList.toggle('open');
+  }
+
   function toggleGoal(id){
     const card=document.getElementById(id);
     const isOpen=card.classList.contains('open');
