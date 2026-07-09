@@ -318,6 +318,15 @@
   .sp-chip.va{background:var(--va)}
   .sp-pik{display:inline-block;font-family:'Inter';font-size:11px;font-weight:600;color:var(--gold);border:1px solid rgba(184,151,46,.4);padding:4px 12px;border-radius:4px}
   .sp-more-note{font-size:13px;color:var(--mute);font-style:italic;text-align:center;margin:24px auto 0;max-width:560px;line-height:1.6}
+  .logo-marquee-wrap{overflow:hidden;width:100%;position:relative}
+  .logo-marquee-wrap::before,.logo-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+  .logo-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--cream),transparent)}
+  .logo-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--cream),transparent)}
+  .logo-marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+  .logo-marquee-track:hover{animation-play-state:paused}
+  .logo-marquee-inner{display:flex;align-items:center;gap:56px;padding:0 28px}
+  .marquee-logo{height:80px;opacity:1;mix-blend-mode:multiply;display:block}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   /* goal accordion cards */
   .sp-gcards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;padding:40px 0 24px}
   .sp-gcard{background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(16,35,64,.09);overflow:hidden;transition:box-shadow .2s}
@@ -861,8 +870,23 @@
   <div class="wrap center" style="padding:52px 0 36px">
     <div style="border-top:1px solid var(--line);padding-top:36px">
       <p style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:28px">Sponsors who have Supported Us</p>
-      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:center">
-        <a href="https://www.arlingtoneconomicdevelopment.com/Home" target="_blank" rel="noopener"><img src="aed-logo.webp" alt="Arlington Economic Development" style="height:120px;opacity:1;mix-blend-mode:multiply"></a>
+      <div class="logo-marquee-wrap">
+        <div class="logo-marquee-track">
+          <div class="logo-marquee-inner">
+            <a href="https://www.arlingtoneconomicdevelopment.com/Home" target="_blank" rel="noopener"><img src="aed-logo.webp" alt="Arlington Economic Development" class="marquee-logo"></a>
+            <a href="https://dcchamber.org/" target="_blank" rel="noopener"><img src="dc-chamber-logo.png" alt="DC Chamber of Commerce" class="marquee-logo"></a>
+            <a href="https://dmped.dc.gov/" target="_blank" rel="noopener"><img src="dmped-logo.png" alt="DMPED" class="marquee-logo"></a>
+            <a href="https://mdinnovationcenter.com/" target="_blank" rel="noopener"><img src="mic-logo.png" alt="Maryland Innovation Center" class="marquee-logo"></a>
+            <a href="https://goldencircle.vc/" target="_blank" rel="noopener"><img src="golden-circle-logo.png" alt="Golden Circle" class="marquee-logo" style="height:120px"></a>
+          </div>
+          <div class="logo-marquee-inner" aria-hidden="true">
+            <a href="https://www.arlingtoneconomicdevelopment.com/Home" target="_blank" rel="noopener"><img src="aed-logo.webp" alt="" class="marquee-logo"></a>
+            <a href="https://dcchamber.org/" target="_blank" rel="noopener"><img src="dc-chamber-logo.png" alt="" class="marquee-logo"></a>
+            <a href="https://dmped.dc.gov/" target="_blank" rel="noopener"><img src="dmped-logo.png" alt="" class="marquee-logo"></a>
+            <a href="https://mdinnovationcenter.com/" target="_blank" rel="noopener"><img src="mic-logo.png" alt="" class="marquee-logo"></a>
+            <a href="https://goldencircle.vc/" target="_blank" rel="noopener"><img src="golden-circle-logo.png" alt="" class="marquee-logo"></a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="pcta" style="margin-top:42px"><a href="https://tally.so/r/jaggY9" class="btn btn-gold">Partner With Us</a></div>
