@@ -33,6 +33,7 @@ section[id]{scroll-margin-top:70px}
 /* nav */
 .nav{position:sticky;top:0;z-index:50;background:rgba(7,18,43,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.nav .nav-links{margin-left:auto}
 .brand{font-family:var(--display);font-size:20px;letter-spacing:.04em;text-transform:uppercase}
 .brand em{font-style:normal;color:var(--gold)}
 .nav-links{display:flex;gap:4px;flex-wrap:wrap}
@@ -143,11 +144,11 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 @media (max-width:760px){.prizes{grid-template-columns:1fr}.inkind{grid-template-columns:1fr;gap:2px}.inkind dd{margin-bottom:10px}}
 
 /* partners */
-.producers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.producers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
 .producers a{background:#fff;color:var(--navy);padding:18px;display:flex;flex-direction:column;gap:12px;min-height:150px}
 .producers img{height:76px;width:100%;max-width:200px;object-fit:contain;object-position:left center}
 .producers span{font-size:13px;line-height:1.45;color:#33405E}
-@media (max-width:860px){.producers{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.producers{grid-template-columns:1fr}}
 .names{color:#D5DCEC;font-size:15px;margin-top:10px;max-width:860px}
 .sponsors{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 .sponsors li{display:flex}.sponsors li > *{flex:1;display:flex;align-items:center;min-height:76px;padding:16px 20px;background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--gold);font-weight:600;font-size:clamp(17px,1.8vw,20px);line-height:1.25;color:var(--white)}
@@ -163,6 +164,10 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 .posts a:hover{border-color:var(--gold)}
 .posts svg{width:18px;height:18px;color:var(--gold);flex:none}
 
+.nav-cta{background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;padding:8px 14px;white-space:nowrap}
+.nav-cta:hover{background:#FFD56E}
+.btn{display:inline-block;margin-top:24px;background:var(--gold);color:var(--navy);font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:22px;padding:14px 28px;transform:skewX(-8deg)}
+.btn:hover{background:#FFD56E}
 /* footer */
 .cta{padding:72px 0;text-align:center;background:radial-gradient(700px 300px at 50% 0,rgba(242,193,78,.16),transparent 70%)}
 .cta h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,7vw,80px);line-height:.95}
@@ -181,6 +186,7 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
   <div class="nav-links">
     <a href="#results">Results</a><a href="#virginia">Virginia</a><a href="#dc">DC</a><a href="#maryland">Maryland</a><a href="#prizes">Prizes</a><a href="#partners">Partners</a><a href="#posts">Posts</a>
   </div>
+  <a class="nav-cta" href="join.html">Join us for 2027</a>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap"><div class="hero-grid"><div>
@@ -189,7 +195,7 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
   <div class="vs">DC <i>vs</i> Maryland <i>vs</i> Virginia</div>
   <a class="champ-call" href="#results"><img src="img/people/andrew-gelbard.jpg" alt="" width="56" height="56"><span><small>2026 DMV Champion</small><b>TechNovaTime</b><em>Andrew Gelbard · Baltimore, MD</em></span></a>
   <p class="lede">A March Madness-style pitch tournament crowning the best startups across Maryland, Virginia, and Washington, DC. Competing for capital, visibility, and the title of regional champion.</p>
-  <div class="tlinks"><a class="tl" href="#results">See the results</a><a class="tl" href="#virginia">Meet all 36 startups</a><a class="tl" href="#posts">Read the recaps</a></div>
+  <div class="tlinks"><a class="tl" href="#results">See the results</a><a class="tl" href="#virginia">Meet all 36 startups</a><a class="tl" href="#posts">Read the recaps</a><a class="tl" href="join.html">Join us for 2027</a></div>
   </div>
   <div class="hero-art" aria-hidden="true">
     <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
@@ -321,7 +327,6 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
   <div class="producers">
     <a href="https://www.districtangels.com" target="_blank" rel="noopener"><img src="da-logo.png" alt="District Angels"><span>Making the DMV a powerhouse of innovation by activating and aligning angel capital</span></a>
     <a href="https://www.inspireaccess.org/" target="_blank" rel="noopener"><img src="ia-logo.jpeg" alt="Inspire Access"><span>Expanding access to capital and opportunity for underrepresented founders</span></a>
-    <a href="https://abell.org/" target="_blank" rel="noopener"><img src="abell-logo.jpg" alt="Abell Foundation"><span>Champion of entrepreneurship and economic development in the DMV</span></a>
     <a href="https://www.dcstw.com/" target="_blank" rel="noopener"><img src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week"><span>The DMV's premier celebration of startups, technology, and entrepreneurship</span></a>
   </div>
   <h3 class="sub">Sponsors &amp; partners</h3>
@@ -338,7 +343,8 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 
 <section class="cta"><div class="wrap">
   <h2>One region <em>will rise</em> again</h2>
-  <p>Follow along for the next season.</p>
+  <p>Sponsor, organize, judge or partner with us for the 2027 season.</p>
+  <a class="btn" href="join.html">Join us for 2027</a>
   <div class="tlinks">
     <a class="tl" href="https://www.linkedin.com/showcase/battle-of-the-regions/" target="_blank" rel="noopener">Follow on LinkedIn</a>
     <a class="tl" href="https://luma.com/DistrictAngels?k=c" target="_blank" rel="noopener">Follow on Luma</a>
