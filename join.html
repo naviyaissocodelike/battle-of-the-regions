@@ -207,6 +207,15 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 .plist li{padding-left:18px;border-left:2px solid var(--gold)}
 .plist b{display:block}.plist span{color:#D5DCEC;font-size:14.5px}
 .note{color:var(--mute);font-size:14px;margin-top:16px}
+.impact-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.impact-stats div{border-top:3px solid var(--gold);background:var(--navy-2);padding:20px}
+.impact-stats b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(40px,5vw,56px);line-height:1;color:var(--gold)}
+.impact-stats span{display:block;margin-top:10px;color:#D5DCEC;font-size:14px;line-height:1.45}
+.stories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.story{border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:8px}
+.story b{font-size:18px}.story p{color:#D5DCEC;font-size:14.5px}
+@media (max-width:860px){.impact-stats{grid-template-columns:1fr 1fr}.stories{grid-template-columns:1fr}}
+@media (max-width:480px){.impact-stats{grid-template-columns:1fr}}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin-top:26px}
 .actions .btn{margin-top:0;font-size:20px;padding:12px 24px}
 </style>
@@ -216,7 +225,7 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 <nav class="nav"><div class="wrap">
   <a class="brand" href="index.html">Battle <em>of the</em> Regions</a>
   <div class="nav-links">
-    <a href="index.html#results">2026 results</a><a href="#sponsor">Sponsor</a><a href="#organize">Organize</a><a href="#partner">Partner</a>
+    <a href="index.html#results">2026 results</a><a href="#impact">Impact</a><a href="#sponsor">Sponsor</a><a href="#organize">Organize</a><a href="#partner">Partner</a>
   </div>
   <a class="nav-cta" href="https://tally.so/r/jaggY9" target="_blank" rel="noopener">Get involved</a>
 </div></nav>
@@ -237,6 +246,23 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
     <div><b>12</b><span>Sponsors &amp; partners</span><p>Backed cash and in-kind prizes for the finalists.</p></div>
   </div>
 </div></header>
+
+<section class="sec" id="impact"><div class="wrap">
+  <span class="kicker">2026 impact</span>
+  <h2 class="sec-h">What the first season <em>delivered</em></h2>
+  <div class="impact-stats">
+    <div><b>~300</b><span>in the room at the Virginia regional, with 144 Luma registrations plus the DevFest audience</span></div>
+    <div><b>200&ndash;300</b><span>in the room at the championship at DC Startup &amp; Tech Week</span></div>
+    <div><b>30&ndash;35%</b><span>of regional attendees were investors, alongside founders and ecosystem partners</span></div>
+    <div><b>59</b><span>of the 150 applications came from Virginia</span></div>
+  </div>
+  <div class="stories">
+    <div class="story"><span class="kicker">Access to capital</span><b>Beyond the cash prizes</b><p>District Angels is opening SPVs for select participating companies, giving them more investor exposure and access to capital after the competition.</p></div>
+    <div class="story"><span class="kicker">Sponsor engagement</span><b>GroundVue &times; J.P. Morgan</b><p>DC regional champion GroundVue opened a bank account with J.P. Morgan after learning about its startup banking offerings through its sponsorship of Battle of the Regions.</p></div>
+    <div class="story"><span class="kicker">Regional champions</span><b>Torev Motors, Arlington County</b><p>Torev won the Virginia regional, advanced to the championship and took second place, bringing home $2,500 in non-dilutive capital.</p></div>
+  </div>
+  <p class="note" style="font-size:15px;color:#D5DCEC;max-width:760px">Founders also made connections with prospective customers, banks, economic development organizations, coworking spaces, law firms, service providers and investors.</p>
+</div></section>
 
 <section class="sec" id="sponsor"><div class="wrap">
   <span class="kicker">For sponsors</span>
