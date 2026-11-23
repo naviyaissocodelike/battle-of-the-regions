@@ -45,6 +45,9 @@ section[id]{scroll-margin-top:70px}
 background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transparent 60%),linear-gradient(180deg,var(--navy-2),var(--navy))}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
 .hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 400px;gap:32px;align-items:center}
+.hero-art svg{width:100%;height:auto;display:block}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:300px;margin:8px auto 0}}
 .ribbon{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;transform:skewX(-8deg)}
 .ribbon span{transform:skewX(8deg)}
 .hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.92;font-size:clamp(56px,11vw,132px);letter-spacing:.01em;margin-top:22px}
@@ -142,10 +145,17 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 /* partners */
 .producers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
 .producers a{background:#fff;color:var(--navy);padding:18px;display:flex;flex-direction:column;gap:12px;min-height:150px}
-.producers img{height:44px;width:auto;object-fit:contain;object-position:left}
+.producers img{height:76px;width:100%;max-width:200px;object-fit:contain;object-position:left center}
 .producers span{font-size:13px;line-height:1.45;color:#33405E}
 @media (max-width:860px){.producers{grid-template-columns:1fr 1fr}}
 .names{color:#D5DCEC;font-size:15px;margin-top:10px;max-width:860px}
+.sponsors{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.sponsors li{display:flex}.sponsors li > *{flex:1;display:flex;align-items:center;min-height:76px;padding:16px 20px;background:var(--navy-2);border:1px solid var(--line);border-left:3px solid var(--gold);font-weight:600;font-size:clamp(17px,1.8vw,20px);line-height:1.25;color:var(--white)}
+.sponsors a:hover{background:var(--navy-3)}
+.vols{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px 14px}
+.vols li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.vols img{width:104px;height:104px;border-radius:50%;object-fit:cover;border:3px solid var(--gold)}
+.vols b{font-size:15px}
 
 /* posts */
 .posts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
@@ -173,13 +183,52 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
   </div>
 </div></nav>
 
-<header class="hero" id="top"><div class="wrap">
+<header class="hero" id="top"><div class="wrap"><div class="hero-grid"><div>
   <span class="ribbon"><span>2026 season · complete</span></span>
   <h1>Battle<span class="of">of the</span>Regions</h1>
   <div class="vs">DC <i>vs</i> Maryland <i>vs</i> Virginia</div>
   <a class="champ-call" href="#results"><img src="img/people/andrew-gelbard.jpg" alt="" width="56" height="56"><span><small>2026 DMV Champion</small><b>TechNovaTime</b><em>Andrew Gelbard · Baltimore, MD</em></span></a>
   <p class="lede">A March Madness-style pitch tournament crowning the best startups across Maryland, Virginia, and Washington, DC. Competing for capital, visibility, and the title of regional champion.</p>
   <div class="tlinks"><a class="tl" href="#results">See the results</a><a class="tl" href="#virginia">Meet all 36 startups</a><a class="tl" href="#posts">Read the recaps</a></div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE08A"/><stop offset=".45" stop-color="#F2C14E"/><stop offset="1" stop-color="#B9831C"/></linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C9962A"/><stop offset=".5" stop-color="#F7D277"/><stop offset="1" stop-color="#C9962A"/></linearGradient>
+        <radialGradient id="glow" cx=".5" cy=".42" r=".5"><stop offset="0" stop-color="#F2C14E" stop-opacity=".35"/><stop offset="1" stop-color="#F2C14E" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="210" cy="200" r="200" fill="url(#glow)"/>
+      <g fill="none" stroke="#F2C14E" stroke-opacity=".35" stroke-width="1.5">
+        <circle cx="210" cy="200" r="150" stroke-dasharray="3 9"/>
+      </g>
+      <g fill="#F2C14E">
+        <path d="M70 70l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" opacity=".8"/>
+        <path d="M352 96l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z" opacity=".6"/>
+        <path d="M60 300l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" opacity=".5"/>
+      </g>
+      <!-- trophy -->
+      <path d="M146 118h-34c0 52 22 82 56 90" fill="none" stroke="url(#g2)" stroke-width="12" stroke-linecap="round"/>
+      <path d="M274 118h34c0 52-22 82-56 90" fill="none" stroke="url(#g2)" stroke-width="12" stroke-linecap="round"/>
+      <path d="M140 96h140v40c0 54-30 92-70 100-40-8-70-46-70-100z" fill="url(#g1)"/>
+      <path d="M140 96h140v12H140z" fill="#FFE9A8" opacity=".7"/>
+      <path d="M160 112c2 50 22 86 50 98" fill="none" stroke="#FFF4CF" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+      <path d="M196 236h28v40h-28z" fill="url(#g2)"/>
+      <path d="M172 276h76l10 26H162z" fill="url(#g1)"/>
+      <rect x="146" y="302" width="128" height="40" rx="3" fill="#0D1D40" stroke="url(#g2)" stroke-width="3"/>
+      <text x="210" y="330" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="22" letter-spacing="3" fill="#F2C14E">2026</text>
+      <path d="M210 128l8 16 18 3-13 12 3 18-16-9-16 9 3-18-13-12 18-3z" fill="#07122B" opacity=".85"/>
+      <!-- region badges -->
+      <g font-family="Anton, Impact, sans-serif" text-anchor="middle">
+        <g transform="translate(70 392)"><circle r="40" fill="#0D1D40" stroke="#F2C14E" stroke-width="3"/><text y="11" font-size="32" fill="#fff">VA</text></g>
+        <g transform="translate(210 412)"><circle r="44" fill="#F2C14E"/><text y="12" font-size="36" fill="#07122B">MD</text></g>
+        <g transform="translate(350 392)"><circle r="40" fill="#0D1D40" stroke="#F2C14E" stroke-width="3"/><text y="11" font-size="32" fill="#fff">DC</text></g>
+        <text x="140" y="404" font-size="16" fill="#F2C14E" letter-spacing="1">VS</text>
+        <text x="280" y="404" font-size="16" fill="#F2C14E" letter-spacing="1">VS</text>
+      </g>
+    </svg>
+  </div>
+  </div>
   <div class="funnel">
     <div><b>150</b><span>Applications</span><p>Founders applied to represent DC, Maryland or Virginia.</p></div>
     <div><b>36</b><span>Startups</span><p>A panel of investors selected the top 12 in each region.</p></div>
@@ -276,9 +325,9 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
     <a href="https://www.dcstw.com/" target="_blank" rel="noopener"><img src="dcstw-logo.avif" alt="DC Startup &amp; Tech Week"><span>The DMV's premier celebration of startups, technology, and entrepreneurship</span></a>
   </div>
   <h3 class="sub">Sponsors &amp; partners</h3>
-  <p class="names">Arlington Economic Development · NVTC · Startup World Cup · Play Money · Golden Triangle · Avahi · Finstrat Management · Croke Fairchild Duarte &amp; Beres · WUST Foundation · CloudOffix · DC Chamber of Commerce · DMPED · Maryland Innovation Center · Golden Circle</p>
-  <h3 class="sub">Volunteers</h3>
-  <p class="names">Marcus Alexander · Kiara Brooks · Marie Brodsky · Regan Anderson · Leticia Nunez Nova · Waves Mowatt-Kane · Paige Bolinger · Maria Gracia Agurto</p>
+  <ul class="sponsors"><li><a href="https://www.arlingtoneconomicdevelopment.com/" target="_blank" rel="noopener">Arlington Economic Development</a></li><li><a href="https://www.nvtc.org/" target="_blank" rel="noopener">NVTC</a></li><li><a href="https://www.startupworldcup.io/" target="_blank" rel="noopener">Startup World Cup</a></li><li><span>Play Money</span></li><li><a href="https://www.goldentriangledc.com/" target="_blank" rel="noopener">Golden Triangle Business Improvement District</a></li><li><span>Avahi</span></li><li><span>Finstrat Management</span></li><li><span>Croke Fairchild Duarte &amp; Beres</span></li><li><span>WUST Foundation</span></li><li><span>CloudOffix</span></li><li><a href="https://dmped.dc.gov/" target="_blank" rel="noopener">DMPED</a></li><li><a href="https://mdinnovationcenter.com/" target="_blank" rel="noopener">Maryland Innovation Center</a></li></ul>
+  <h3 class="sub">The volunteers who made it happen</h3>
+  <ul class="vols"><li><img src="img/people/waves-mowatt-kane.jpg" alt="" loading="lazy" width="96" height="96"><b>Waves Mowatt-Kane</b></li><li><img src="img/people/marcus-alexander.jpg" alt="" loading="lazy" width="96" height="96"><b>Marcus Alexander</b></li><li><img src="img/people/marie-brodsky.jpg" alt="" loading="lazy" width="96" height="96"><b>Marie Brodsky</b></li><li><img src="img/people/kiara-brooks.jpg" alt="" loading="lazy" width="96" height="96"><b>Kiara Brooks</b></li><li><img src="img/people/regan-anderson.jpg" alt="" loading="lazy" width="96" height="96"><b>Regan Anderson</b></li><li><img src="img/people/leticia-nunez-nova.jpg" alt="" loading="lazy" width="96" height="96"><b>Leticia Nunez Nova</b></li></ul>
 </div></section>
 
 <section class="sec" id="posts"><div class="wrap">
@@ -300,9 +349,6 @@ background:radial-gradient(900px 420px at 80% -10%,rgba(242,193,78,.18),transpar
 <footer class="foot"><div class="wrap">
   <span>© Battle of the Regions</span>
   <a href="https://www.districtangels.com" target="_blank" rel="noopener">District Angels</a>
-  <a href="https://www.dcstw.com/" target="_blank" rel="noopener">DC Startup &amp; Tech Week</a>
-  <a href="https://www.inspireaccess.org/" target="_blank" rel="noopener">Inspire Access</a>
-  <a href="https://abell.org/" target="_blank" rel="noopener">Abell Foundation</a>
 </div></footer>
 
 </body>
